@@ -22,36 +22,39 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "商城",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#8A8A8A",
+    "selectedColor": "#FB592C",
+    "backgroundColor": "#FFFFFF",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "/images/icons/icon-home.png",
+      "selectedIconPath": "/images/icons/icon-home-selected.png"
     }, {
       "pagePath": "pages/category/category",
       "text": "分类",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "/images/icons/icon-cate.png",
+      "selectedIconPath": "/images/icons/icon-cate-selected.png"
     }, {
       "pagePath": "pages/live/live",
       "text": "直播",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "/images/icons/icon-camera.png",
+      "selectedIconPath": "/images/icons/icon-camera-selected.png"
     }, {
       "pagePath": "pages/cart/cart",
       "text": "购物车",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "/images/icons/icon-cart.png",
+      "selectedIconPath": "/images/icons/icon-cart-selected.png"
     }, {
       "pagePath": "pages/my/my",
       "text": "我的",
-      "iconPath": "",
-      "selectedIconPath": ""
+      "iconPath": "/images/icons/icon-person.png",
+      "selectedIconPath": "/images/icons/icon-person-selected.png"
     }]
   },
   "sitemapLocation": "sitemap.json",

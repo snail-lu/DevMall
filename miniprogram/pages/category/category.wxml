@@ -1,2 +1,34 @@
 <!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<view class="category-container">
+
+    <!-- 左侧一级类目 -->
+    <scroll-view class="first-cate" scroll-y="true">
+        <view 
+            wx:for="{{categoryList}}" 
+            wx:key="id" 
+            class="cate-item {{currentCateIndex===index?'current-cate':''}}"
+            data-index="{{index}}"
+            bindtap="changeCate"
+        >
+            {{item.label}}
+        </view>
+    </scroll-view>
+
+    <!-- 右侧二级类目 -->
+    <swiper class="second-cate" easing-function="linear" vertical="{{true}}" current="{{currentCateIndex}}" bindchange="swiperCate">
+        <swiper-item wx:for="{{categoryList}}" wx:key="id">
+            <scroll-view scroll-y="{{true}}" class="second-cate-scroll">
+            <view class="cate-banner">{{item.label}}</view>
+            <view class="cate-item" wx:for="{{10}}" wx:for-item="secondCateItem" wx:key="*this">
+                <view class="title">二级类目{{secondCateItem}}</view>
+                <view class="third-cate">
+                    <view class="third-cate-item" wx:for="{{8}}" wx:key="*this" wx:for-item="thirdCateItem">
+                        <view class="item-image"></view>
+                        <view class="item-name">三级类目{{thirdCateItem}}</view>
+                    </view>
+                </view>
+            </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>
