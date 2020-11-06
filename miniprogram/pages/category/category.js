@@ -104,7 +104,9 @@ Page({
         label: '生活充值'
       }
     ],
-    currentCateIndex: 0
+    currentCateIndex: 0,
+    scrollHeight: 0,  // 左侧菜单需要滚动的高度
+    scrollTop: 0,   // 右侧菜单滚动归零
   },
 
   /**
@@ -113,17 +115,30 @@ Page({
   onLoad: function (options) {
   },
 
-  //
+  //点击切换分类
   async changeCate(e){
     const { index } = e.currentTarget.dataset;
     this.setData({
-      currentCateIndex: index
+      currentCateIndex: index,
+      scrollTop: 0
     })
 
-    let systemInfo = wx.getSystemInfoSync()
-    console.log(systemInfo)
+    // 分类滚动至中间位置
+    let systemInfo = wx.getSystemInfoSync();
+    let { windowHeight, windowWidth } = systemInfo;
+    const radio = 750/windowWidth;
+    const { offsetTop } = e.currentTarget;
+    const cateHeight = 100/radio;
+    const scrollHeight = offsetTop + cateHeight/2 - windowHeight/2
+    if(scrollHeight > 0) {
+      this.setData({
+        scrollHeight: parseInt(scrollHeight),
+      })
+    }
   }, 
 
+
+  // 滑动切换分类
   swiperCate(e){
     this.setData({
       currentCateIndex: e.detail.current
