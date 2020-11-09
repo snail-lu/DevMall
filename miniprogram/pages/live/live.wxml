@@ -1,2 +1,41 @@
 <!--pages/live/live.wxml-->
-<text>pages/live/live.wxml</text>
+<view class="live-container">
+    <view class="live-item" wx:for="{{liveList}}" wx:key="index">
+        <view class="live-time flex-box flex-h-between flex-v-center">
+            <text>{{item.startTime}}</text>
+            <text class="item-status">{{item.status}}</text>
+        </view>
+        <view class="live-content flex-box">
+            <navigator class="live-img "  hover-class="none" url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}">
+                <image src="{{item.cover_img}}"  mode="widthFix"/>
+            </navigator>
+            <view class="content-info flex-item-1 flex-box-column flex-h-between">
+                <view class="live-title">{{item.name}}</view>
+                <view class="btn-area flex-box flex-h-end" wx:if="{{item.status=='直播未开始'}}">
+                    <subscribe catchtap="stopPropagation" class="subscribe-btn" room-id="{{item.roomid}}"></subscribe>
+                </view>
+                <view class="btn-area flex-box flex-h-end" wx:if="{{item.status=='直播中'}}">
+                    <navigator class="action-btn play-btn" url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}&custom_params={{customParams}}">观看直播</navigator>
+                </view>
+                <view class="btn-area flex-box flex-h-end" wx:elif="{{item.status=='直播已结束'}}">
+                    <navigator class="action-btn replay-btn" url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}&custom_params={{customParams}}">观看回放</navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="empty-tips" wx:if="{{liveList.length==0}}">没有可以观看的直播哦~</view>
+</view>
+
+<!-- 分享按钮 -->
+<!-- <my-share-button bindontap="showShareModal" /> -->
+
+<!-- 注册领券弹窗 -->
+<!-- <custom-modal show-modal="{{showRegisterModal}}" modal-content="{{modalContent}}" bindtapclose="bindCloseRegisterModal" modal-type="{{1}}"/> -->
+
+<!-- 分享类型选择弹窗 -->
+<!-- <my-share-modal  is-show="{{showShareModal}}" bindmaskclick="hideShareModal" bindposterclick="showSharePosterModal" /> -->
+
+<!-- 海报弹窗 -->
+<!-- <my-share-poster-modal is-show="{{showSharePosterModal}}" poster-info="{{posterInfo}}" staff-info="{{staffInfo}}" bindtapclose="hideSharePosterModal" /> -->
+
+

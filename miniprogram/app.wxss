@@ -154,3 +154,28 @@ page {
   line-height: 36rpx;
   word-break: break-all;
 }
+
+.flex-box {
+  display: flex;
+}
+
+.flex-box-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-h-between {
+  justify-content: space-between;
+}
+
+.flex-h-end{
+  justify-content: flex-end;
+}
+
+.flex-v-center {
+  align-items: center;
+}
+
+.flex-item-1 {
+  flex: 1;
+}

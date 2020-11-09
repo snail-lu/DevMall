@@ -5,7 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    liveList: [
+      { 
+        startTime: '2020-05-01 18:00:00',
+        cover_img: '',
+        name: '双十一品牌大促预售直播测试实测实测测试测试测试测试测试测试',
+        roomid: '123',
+        status: '直播中',
+      }, 
+      { 
+        startTime: '2020-05-01 18:00:00',
+        cover_img: '',
+        name: '国庆节品牌大促预售直播',
+        roomid: '123',
+        status: '直播已结束',
+      },
+      { 
+        startTime: '2020-05-01 18:00:00',
+        cover_img: '',
+        name: '618品牌大促预售直播',
+        roomid: '123',
+        status: '直播已结束',
+      }
+    ]
   },
 
   /**
