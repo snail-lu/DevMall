@@ -1,2 +1,106 @@
 <!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="my-container">
+
+  <view class="my-info">
+    <image class="info-bg" src="/images/my/bg.png" />
+    <!-- 左侧头像 -->
+    <view class="info-l">
+      <view class="bg-img">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+    </view>
+
+    <!-- 中间信息 -->
+    <view class="info-r">
+      <view wx:if="{{userInfo.name}}" class="name">{{userInfo.name}}</view>
+      
+      <!-- 用户信息中不存在用户名时，显示微信昵称 -->
+      <view wx:else class="name">
+        <open-data type="userNickName"></open-data>
+      </view>
+
+      <view class="point-box">
+        <view class="box-l">
+          <view class="grow-value-total">
+            <view class="grow-value-current" style="width: {{userInfo.currentPoint*100/userInfo.totalPoint}}%"></view>
+          </view>
+          <view>{{userInfo.currentPoint}}/{{userInfo.totalPoint}}</view>
+        </view>
+        <view class="box-r">查看积分</view>
+      </view>
+      <view class="member-label">{{userInfo.memberLabel}}</view>
+      
+    </view>
+
+    <!-- 会员二维码入口 -->
+    <view class="qr-code" bindtap="toCard" data-card="{{userInfo.cardNo}}">
+      <image src="/images/my/qr_code.png" />
+    </view>
+  </view>
+
+  <view class="member-banner">
+    <image class="bg" src="/images/my/member_bg.png" />
+    <view class="title"><text>VIP</text> 会员中心</view>
+      <view class="btn">
+        <text>了解特权</text>
+        <image src="/images/icons/icon-right.png" />
+      </view>
+  </view>
+
+  <!-- 我的订单 -->
+  <view class="menu-list">
+    <view class="header">
+      <view class="header-title">我的订单</view>
+      <view class="more" data-index="0" bindtap="toOrderList">
+        <text>查看全部订单</text>
+        <image src="/images/icons/icon-right.png" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="menu-item" wx:for="{{orderMenuList}}" wx:key="icon" bindtap="navigateTo">
+        <image src="{{'/images/my/order_'+item.icon+'.png'}}" />
+        <span class="count-label"  wx:if="{{userInfo.orderStatusCountMap[item.countField]>0}}">
+          {{userInfo.orderStatusCountMap[item.countField]>99?'99+':userInfo.orderStatusCountMap[item.countField]}}
+        </span>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="menu-list">
+    <view class="header">
+      <view class="header-title">我的服务</view>
+    </view>
+    <view class="content">
+      <view class="menu-item" wx:for="{{serviceMenuList}}" wx:key="icon" bindtap="navigateTo">
+        <image src="{{'/images/my/service_'+item.icon+'.png'}}" />
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的服务 -->
+  <!-- <view class="my-service">
+    <view class="title">我的服务</view>
+    <view class="content">
+      <view class="service-item" bindtap="toCouponList">
+        <image src="{{'/images/my/service_0.png'}}" />
+        <text>红包/卡券</text>
+      </view>
+      <view class="service-item" bindtap="toFavorites">
+        <image src="{{'/images/my/service_1.png'}}" />
+        <text>收藏夹</text>
+      </view>
+      <view class="service-item" bindtap="toPersonalInfo">
+        <image src="{{'/images/my/service_2.png'}}" />
+        <text>个人资料</text>
+      </view>
+      <view class="service-item" bindtap="toAddressManage">
+        <image src="{{'/images/my/service_3.png'}}" />
+        <text>地址簿</text>
+      </view>
+    </view>
+  </view> -->
+</view>
+
