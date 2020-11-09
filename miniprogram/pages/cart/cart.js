@@ -5,7 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isEditMode: false,
+    cartList: [
+      {
+        id: '431fdsafdsa132421',
+        shopName: '天猫超市'
+      },
+      {
+        id: '43143214324fdsf21',
+        shopName: '京东超市'
+      }
+    ]
   },
 
   /**
@@ -13,6 +23,14 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  // 编辑
+  switchEditMode() {
+    const { isEditMode } = this.data;
+    this.setData({
+      isEditMode: !isEditMode
+    })
   },
 
   /**

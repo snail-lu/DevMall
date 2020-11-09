@@ -1,2 +1,48 @@
 <!--pages/cart/cart.wxml-->
-<text>pages/cart/cart.wxml</text>
+<view class="cart-container flex-box-column">
+    <view class="header flex-box flex-h-between flex-v-center">
+        <checkbox checked="{{true}}" />
+        <view bindtap="switchEditMode">{{isEditMode?'完成':'编辑'}}</view>
+    </view>
+    <view class="content flex-item-1">
+        <block wx:for="{{cartList}}" wx:key="id">
+            <view class="cart-item">
+                <view class="cart-header">
+                    <checkbox class="cart-checkbox" color="#fff"></checkbox>
+                    <view class="shop-name">{{item.shopName}}</view>
+                </view>
+                <view class="goods-list">
+                    <view class="goods-item" wx:for="{{3}}">
+                        <checkbox class="cart-checkbox" color="#fff"></checkbox>
+                        <image class="goods-image" />
+                        <view class="goods-info">
+                            <view class="goods-name">【双11预售】最新限量款限定款预售正品cherry樱桃轴红轴机械键盘(含有线/无线鼠标套装)</view>
+                            <text class="goods-color-size">黎明灰：全尺寸套装测测试测试测试测试</text>
+                            <view class="goods-price">
+                                <view>¥158</view>
+                                <view class="goods-num-box">
+                                    <image class="btn btn-left" src="/images/icons/jian.png" />
+                                    <view class="goods-num">1</view>
+                                    <image class="btn btn-right" src="/images/icons/jia.png" />
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="footer">
+        <view class="edit-box flex-box flex-h-end flex-v-center" wx:if="{{isEditMode}}">
+            <view class="btn">移至收藏夹</view>
+            <view class="btn remove-btn">删除</view>
+        </view>
+        <view class="settle-box flex-box flex-h-between flex-v-center" wx:else>
+            <view>
+                <view class="settle-amount">总计：<text class="total-amount">¥899.00</text></view>
+                <view class="sale-amount">已优惠：<text>89.00</text></view>
+            </view>
+            <view class="settle-btn">去结算(10)</view>
+        </view>
+    </view>
+</view>
