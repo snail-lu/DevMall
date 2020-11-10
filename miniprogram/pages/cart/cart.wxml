@@ -1,15 +1,21 @@
 <!--pages/cart/cart.wxml-->
 <view class="cart-container flex-box-column">
     <view class="header flex-box flex-h-between flex-v-center">
-        <checkbox checked="{{true}}" />
+        <label style="display: flex;align-items: center;">
+        <checkbox class="cart-checkbox" color="#fff"></checkbox>
+        全选
+        </label>
         <view bindtap="switchEditMode">{{isEditMode?'完成':'编辑'}}</view>
     </view>
     <view class="content flex-item-1">
         <block wx:for="{{cartList}}" wx:key="id">
             <view class="cart-item">
-                <view class="cart-header">
-                    <checkbox class="cart-checkbox" color="#fff"></checkbox>
+                <view class="cart-title">
+                    <label style="display: flex;align-items: center;">
+                        <checkbox class="cart-checkbox" color="#fff"></checkbox>
+                    </label>
                     <view class="shop-name">{{item.shopName}}</view>
+                    <image class="icon-right" src="/images/icons/icon-right.png" />
                 </view>
                 <view class="goods-list">
                     <view class="goods-item" wx:for="{{3}}">
