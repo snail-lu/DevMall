@@ -1,10 +1,13 @@
 // pages/category/category.js
+import { getNavigationBarHeight } from '../../utils/index'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    navigationBarHeight: 40,
+    statusBarHeight: 20,
     // mock数据
     categoryList: [
       {
@@ -107,12 +110,18 @@ Page({
     currentCateIndex: 0,
     scrollHeight: 0,  // 左侧菜单需要滚动的高度
     scrollTop: 0,   // 右侧菜单滚动归零
+    hotWords: ['iPhone','荣耀手机','充电宝','毛呢大衣']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const { navigationBarHeight, statusBarHeight } = getNavigationBarHeight();
+    this.setData({
+      navigationBarHeight,
+      statusBarHeight
+    })
   },
 
   //点击切换分类
@@ -126,16 +135,24 @@ Page({
     // 分类滚动至中间位置
     let systemInfo = wx.getSystemInfoSync();
     let { windowHeight, windowWidth } = systemInfo;
+    const { navigationBarHeight,statusBarHeight } = this.data;
     const radio = 750/windowWidth;
     const { offsetTop } = e.currentTarget;
     const cateHeight = 100/radio;
-    const scrollHeight = offsetTop + cateHeight/2 - windowHeight/2
+    const scrollHeight = offsetTop + cateHeight/2 - (windowHeight-navigationBarHeight-statusBarHeight)/2
     if(scrollHeight > 0) {
       this.setData({
         scrollHeight: parseInt(scrollHeight),
       })
     }
-  }, 
+  },
+
+  // 跳转搜索页面
+  toSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  },
 
 
   // 滑动切换分类

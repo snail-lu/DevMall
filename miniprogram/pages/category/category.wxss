@@ -1,9 +1,6 @@
 page {
   height: 100%;
   background-color: #fff;
-  border-top: 1px solid #ccc;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .category-container {
@@ -11,6 +8,66 @@ page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.category-container .status-bar {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.category-container .navigation-bar {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 32rpx;
+  font-size: 24rpx;
+}
+
+.category-container .navigation-bar .search-box {
+  width: 70%;
+  background-color: #f6f6f6;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.category-container .navigation-bar .search-box .search-img {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 12rpx;
+  margin-left: 30rpx;
+}
+
+.category-container .navigation-bar .search-box .words-swiper {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #333;
+  margin-left: 20rpx;
+}
+
+.category-container .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #eee;
+  overflow-y: hidden;
 }
 
 .first-cate {
@@ -59,7 +116,7 @@ page {
 
 .second-cate .second-cate-scroll {
   height: 100%;
-  padding: 20rpx 0;
+  padding-top: 20rpx;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
