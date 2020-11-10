@@ -179,3 +179,21 @@ page {
 .flex-item-1 {
   flex: 1;
 }
+
+.single-line-overflow {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.double-line-overflow {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}

@@ -1,2 +1,58 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="home-container">
+    <view class="status-bar" style="height:{{statusBarHeight}}px"></view>
+    <view class="navigation-bar" style="height:{{navigationBarHeight}}px">
+        <view class="search-box" bindtap="toSearch">
+            <image class="search-img" src="/images/icons/icon-search.png" />
+            <swiper class="words-swiper" vertical="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
+                <swiper-item wx:for="{{hotWords}}" wx:key="*this">{{item}}</swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="content">
+        <view class="carousel-box">
+            <carousel></carousel>
+        </view>
+        <view class="menu-box">
+            <view class="menu-item" wx:for="{{menuList}}" wx:key="id">
+                <image src="" />
+                <view>{{item.label}}</view>
+            </view>
+        </view>
+
+        <view class="activity-box">
+            <view class="header">
+                秒杀专场
+            </view>
+            <scroll-view class="goods-box" scroll-x="{{true}}" enable-flex="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+                <view class="goods-item" wx:for="{{20}}" wx:key="*this">
+                    <image src="" />
+                    <view>¥3669</view>
+                    <view class="origin-price">¥5599</view>
+                </view>
+                <view class="more-goods-btn">查看更多<image src="/images/icons/icon-right.png" /></view>
+            </scroll-view>
+        </view>
+    </view>
+
+    <view class="goods-list">
+        <view class="goods-tab-list flex-box">
+            <view class="tab-item flex-item-1 {{currentTabId==item.id?'tab-item-active':''}}" wx:for="{{tabList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchTab">
+                <view class="label">{{item.label}}</view>
+                <view class="desc">{{item.desc}}</view>
+            </view>
+        </view>
+        <view class="goods-box">
+            <view class="goods-item flex-box-column" wx:for="{{39}}" wx:key="*this">
+                <image src="" />
+                <view class="goods-name double-line-overflow">【品牌】耐克 男子NIKE LEBRON XVII LOW EP 篮球鞋</view>
+                <view class="goods-price">¥1299.00</view>
+                <view class="goods-comment flex-box flex-h-between">
+                    <view>4328条评论</view>
+                    <view>94%好评率</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    
+</view>
