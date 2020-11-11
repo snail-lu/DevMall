@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="home-container">
     <view class="status-bar" style="height:{{statusBarHeight}}px"></view>
-    <view class="navigation-bar" style="height:{{navigationBarHeight}}px">
+    <view class="navigation-bar" style="height:{{navigationBarHeight}}px; top: {{statusBarHeight}}px">
         <view class="search-box" bindtap="toSearch">
             <image class="search-img" src="/images/icons/icon-search.png" />
             <swiper class="words-swiper" vertical="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
@@ -21,16 +21,25 @@
         </view>
 
         <view class="activity-box">
-            <view class="header">
-                秒杀专场
+            <view class="header flex-box flex-h-between">
+                <view class="header-l flex-box flex-v-center">
+                    <text>秒杀专场</text>
+                    <view class="cutdown-box flex-box">
+                        <view class="box-l">18点场</view>
+                        <view class="box-r">23:59:59</view>
+                    </view>
+                </view>
+                <view class="header-r flex-box flex-v-center">更多好货限时疯抢<image src="/images/icons/icon-right.png" /></view>
             </view>
-            <scroll-view class="goods-box" scroll-x="{{true}}" enable-flex="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+            <scroll-view class="goods-box" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" enable-flex="{{true}}">
                 <view class="goods-item" wx:for="{{20}}" wx:key="*this">
                     <image src="" />
                     <view>¥3669</view>
                     <view class="origin-price">¥5599</view>
                 </view>
-                <view class="more-goods-btn">查看更多<image src="/images/icons/icon-right.png" /></view>
+                <view class="more-goods-btn">
+                    查看更多
+                </view>
             </scroll-view>
         </view>
     </view>
@@ -40,6 +49,7 @@
             <view class="tab-item flex-item-1 {{currentTabId==item.id?'tab-item-active':''}}" wx:for="{{tabList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchTab">
                 <view class="label">{{item.label}}</view>
                 <view class="desc">{{item.desc}}</view>
+                <image wx:if="{{currentTabId==item.id}}" class="arc" src="/images/icons/icon-arc.png" />
             </view>
         </view>
         <view class="goods-box">

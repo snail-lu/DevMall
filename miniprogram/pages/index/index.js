@@ -86,13 +86,6 @@ Page({
     currentTabId: 101,
   },
 
-  switchTab(e){
-    const { id } = e.currentTarget.dataset;
-    this.setData({
-      currentTabId: id
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -104,6 +97,21 @@ Page({
     })
     console.log(navigationBarHeight)
   },
+
+  switchTab(e){
+    const { id } = e.currentTarget.dataset;
+    this.setData({
+      currentTabId: id
+    })
+  },
+
+  // 跳转搜索页面
+  toSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  },
+  
 
   /**
    * 生命周期函数--监听页面初次渲染完成
