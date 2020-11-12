@@ -51,13 +51,13 @@
   <view class="menu-list">
     <view class="header">
       <view class="header-title">我的订单</view>
-      <view class="more" data-index="0" bindtap="toOrderList">
+      <view class="more" data-index="0" data-url="/pages/orderList/orderList" bindtap="navigateTo">
         <text>查看全部订单</text>
         <image src="/images/icons/icon-right.png" />
       </view>
     </view>
     <view class="content">
-      <view class="menu-item" wx:for="{{orderMenuList}}" wx:key="icon" bindtap="navigateTo">
+      <view class="menu-item" wx:for="{{orderMenuList}}" wx:key="icon" data-url="{{item.pageTarget}}" bindtap="navigateTo">
         <image src="{{'/images/my/order_'+item.icon+'.png'}}" />
         <span class="count-label"  wx:if="{{userInfo.orderStatusCountMap[item.countField]>0}}">
           {{userInfo.orderStatusCountMap[item.countField]>99?'99+':userInfo.orderStatusCountMap[item.countField]}}
@@ -73,7 +73,7 @@
       <view class="header-title">我的服务</view>
     </view>
     <view class="content">
-      <view class="menu-item" wx:for="{{serviceMenuList}}" wx:key="icon" bindtap="navigateTo">
+      <view class="menu-item" wx:for="{{serviceMenuList}}" wx:key="icon" data-url="{{item.pageTarget}}" bindtap="navigateTo">
         <image src="{{'/images/my/service_'+item.icon+'.png'}}" />
         <text>{{item.label}}</text>
       </view>

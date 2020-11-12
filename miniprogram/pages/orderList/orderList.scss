@@ -1,0 +1,36 @@
+@import "../template/template.scss";
+
+.tab-list {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    font-size: 26rpx;
+
+    .tab-item {
+        padding: 20rpx 0;
+        text-align: center;
+    }
+
+    .tab-item-active {
+        color: #F80707;
+        position: relative;
+    }
+
+    .tab-item-active::after{
+        display: block;
+        content: '';
+        width: 80rpx;
+        height: 6rpx;
+        border-radius: 3rpx;
+        background-color: #F80707;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -40rpx;
+    }
+
+}
+
+.order-list-box {
+    padding: 20rpx 32rpx;
+}
