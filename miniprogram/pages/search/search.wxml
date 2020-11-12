@@ -11,7 +11,7 @@
             <text class="hot-search-delete" bindtap="deleteSearchRecords">删除全部</text>
         </view>
         <view class="hot-search-content">
-            <view class="key-words recent-words" wx:for="{{searchRecord}}" wx:key="*this"data-value="{{item}}" bindtap="wordsSearch">
+            <view class="key-words recent-words" wx:for="{{searchRecord}}" wx:key="*this" data-value="{{item}}" bindtap="wordsSearch">
                 {{item}}
             </view>
         </view>

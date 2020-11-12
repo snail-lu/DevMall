@@ -6,6 +6,7 @@
     "pages/cart/cart",
     "pages/my/my",
     "pages/search/search",
+    "pages/goodsList/goodsList",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

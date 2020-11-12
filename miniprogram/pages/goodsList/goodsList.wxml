@@ -1,0 +1,33 @@
+<!--pages/goodsList/goodsList.wxml-->
+<import src="/pages/template/template.wxml"></import>
+<view class="goodslist-container">
+    <view class="sort-box flex-box flex-h-between">
+        <view class="sort-item flex-item-1 flex-box flex-v-center flex-h-center" wx:for="{{sortList}}" wx:key="prop" bindtap="changeSortField" data-field="{{item.prop}}" data-type="{{fieldValue}}">
+            <text class="{{currentField==item.prop?'item-active':''}}">{{item.label}}</text>
+            <block wx:if="{{currentField==item.prop}}">
+                <view class="{{fieldValue==2?'triangle-up-active':''}}"></view>
+                <view class="{{fieldValue==1?'triangle-down-active':''}}"></view>
+            </block>
+            <block wx:else>
+                <view class="triangle-down"></view>
+            </block>
+        </view>
+        <view class="sort-item flex-item-1 flex-box flex-v-center flex-h-center">
+            <view class="list-mode flex-box flex-v-center" bindtap="switchListMode" data-mode="{{listMode}}">
+                <image class="list-img" src="{{'/images/icons/icon-list-'+listMode+'.png'}}" />
+            </view>
+            <view class="filter-box flex-box flex-v-center">
+                <image class="filter-img" src="/images/icons/icon-filter.png" />
+                筛选
+            </view>
+        </view>
+    </view>
+    <view class="goods-list flex-box flex-wrap flex-h-between">
+        <block wx:if="{{listMode==1}}">
+            <template is="goodsItem1" wx:for="{{goodsList}}" wx:key="*this"></template>
+        </block>
+        <block wx:if="{{listMode==2}}">
+            <template is="goodsItem2" wx:for="{{goodsList}}" wx:key="*this"></template>
+        </block>
+    </view>
+</view>

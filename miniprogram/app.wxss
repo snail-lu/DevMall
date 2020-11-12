@@ -168,6 +168,14 @@ page {
   justify-content: space-between;
 }
 
+.flex-h-center {
+  justify-content: center;
+}
+
+.flex-h-around {
+  justify-content: space-around;
+}
+
 .flex-h-end{
   justify-content: flex-end;
 }
@@ -178,6 +186,10 @@ page {
 
 .flex-item-1 {
   flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .single-line-overflow {

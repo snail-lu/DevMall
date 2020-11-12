@@ -1,7 +1,9 @@
 //Page Object
 Page({
   data: {
-    hotWords: ['iphone 11', '华为Mate 40', '天猫双11', '京东双11']
+    hotWords: ['iphone 11', '华为Mate 40', '天猫双11', '京东双11'], // 热门搜索
+    searchRecords: [],   // 最近搜索
+    searchWords: "",     // 搜索内容
   },
 
   // 删除搜索记录
@@ -38,8 +40,7 @@ Page({
       }
       
       wx.setStorageSync('searchRecord', searchRecord);
-      let eventDetail = { value: searchWords }; // detail对象，提供给事件监听函数
-      this.triggerEvent('handlesearch', eventDetail)
+      wx.navigateTo({ url: '/pages/goodsList/goodsList?words='+ searchWords})
     }else{
       wx.showToast({
         title: '请输入要搜索的关键字',
@@ -51,7 +52,8 @@ Page({
 
   // 最近搜索和热搜词搜索
   wordsSearch(e){
-    this.triggerEvent('handlesearch', e.currentTarget.dataset)
+    const { value } = e.currentTarget.dataset;
+    wx.navigateTo({ url: '/pages/goodsList/goodsList?words=' + value})
   },
 
   //options(Object)

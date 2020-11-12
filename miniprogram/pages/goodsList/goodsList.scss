@@ -1,0 +1,76 @@
+@import '../template/template.scss';
+
+.sort-box {
+    border-bottom: 1px solid #ccc;
+    padding: 10rpx 0;
+    font-size: 26rpx;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    
+
+    .item-active {
+        color: #F80707;
+    }
+
+    .triangle-up{
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 6px solid #aaa;
+    }
+
+    .triangle-up-active {
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 6px solid #F80707;;
+    }
+
+    .triangle-down{
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 6px solid #aaa;
+    }
+
+    .triangle-down-active {
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 6px solid #F80707;;
+    }
+
+    .sort-item {
+        .list-img, .filter-img{
+            width: 48rpx;
+            height: 48rpx;
+        }
+    }
+
+    .list-mode {
+        position: relative;
+        margin-right: 20rpx;
+    }
+
+    .list-mode::after {
+        position: absolute;
+        content: "";
+        display: flex;
+        width: 2rpx;
+        height: 30rpx;
+        background-color: #888;
+        top: 50%;
+        right: -10rpx;
+        margin-top: -15rpx;
+    }
+
+}
+
+.goods-list {
+    padding: 20rpx 32rpx 0;
+}
