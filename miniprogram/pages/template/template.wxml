@@ -32,7 +32,7 @@
         </view>
         <view class="address-info">
             <view class="address">上海市浦东新区张江镇张江路张江科创园1期1栋1111室</view>
-            <image class="edit-btn" src="/images/icons/edit.png" />
+            <image class="edit-btn" src="/images/icons/icon-edit.png" />
         </view>
     </view>
 </template>

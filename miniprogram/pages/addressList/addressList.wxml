@@ -1,0 +1,8 @@
+<!--pages/addressList/addressList.wxml-->
+<import src="/pages/template/template.wxml"></import>
+
+<view class="address-list-container">
+    <block wx:for="{{10}}">
+        <template is="addressItem"></template>
+    </block>
+</view>
