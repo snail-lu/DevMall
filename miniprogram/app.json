@@ -9,6 +9,7 @@
     "pages/goodsList/goodsList",
     "pages/orderList/orderList",
     "pages/addressList/addressList",
+    "pages/couponList/couponList",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

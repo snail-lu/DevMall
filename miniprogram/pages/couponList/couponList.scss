@@ -1,0 +1,123 @@
+.tab-list {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    font-size: 26rpx;
+    z-index: 9999;
+
+    .tab-item {
+        padding: 20rpx 0;
+        text-align: center;
+    }
+
+    .tab-item-active {
+        color: #F80707;
+        position: relative;
+    }
+
+    .tab-item-active::after{
+        display: block;
+        content: '';
+        width: 80rpx;
+        height: 6rpx;
+        border-radius: 3rpx;
+        background-color: #F80707;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -40rpx;
+    }
+
+}
+
+.coupon-list-box {
+    padding: 20rpx 32rpx;
+}
+
+// 优惠券项模板样式
+.coupon-item {
+    display: flex;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    width: 100%;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+    overflow: hidden;
+
+    .coupon-l {
+        width: 200rpx;
+        height: 200rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 40rpx;
+        font-weight: bold;
+        color: #F80707;
+
+        .use-limit {
+            font-size: 28rpx;
+        }
+    }
+
+    .coupon-r {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .r-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        word-break: break-all;
+        font-size: 24rpx;
+
+        .label {
+            color: #fff;
+            background-color: #F80707;
+            font-size: 22rpx;
+            border-radius: 6rpx;
+            text-align: center;
+            height: 30rpx;
+            line-height: 30rpx;
+            margin-right: 20rpx;
+        }
+    }
+
+    .r-bottom {
+        font-size: 22rpx;
+        color: #999;
+
+        .coupon-date {
+            padding-bottom: 20rpx;
+            border-bottom: 1px dashed #999;
+        }
+
+        .coupon-detail-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20rpx;
+
+            image {
+                width: 24rpx;
+                height: 24rpx;
+            }
+        }
+    }
+
+    .coupon-status {
+        position: absolute;
+        top: -30rpx;
+        right: -10rpx;
+
+        image {
+            width: 128rpx;
+            height: 128rpx;
+        }
+    }
+}

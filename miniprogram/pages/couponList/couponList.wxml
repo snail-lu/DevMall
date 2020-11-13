@@ -1,0 +1,42 @@
+<!--pages/couponList/couponList.wxml-->
+<import src="/pages/template/template.wxml"></import>
+
+<view class="orderlist-container">
+    <view class="tab-list flex-box flex-h-between">
+        <view
+            class="tab-item  flex-item-1 {{currentTabIndex==index?'tab-item-active':''}}"
+            wx:for="{{['待使用','已使用','已过期']}}" 
+            wx:key="*this"
+            data-index="{{index}}"
+            bindtap="switchTab">
+            {{item}}
+        </view>
+    </view>
+    <view class="coupon-list-box">
+        <block wx:for="{{couponList}}" wx:key="*this" bindtap="toCouponDetail">
+            <view class="coupon-item">
+                <view class="coupon-l">
+                    <view>¥200</view>
+                    <view class="use-limit">满499元可用</view>
+                </view>
+                <view class="coupon-r">
+                    <view class="r-top multiline-overflow">
+                        <view class="label">满减券</view>
+                        全品类(特例商品除外)
+                    </view>
+                    <view class="r-bottom">
+                        <view class="coupon-date">2020.02.02-2020.12.12</view>
+                        <view class="coupon-detail-btn">
+                            <text>详细信息</text>
+                            <image src="/images/icons/icon-down.png" />
+                        </view>
+                    </view>
+                </view>
+                <view class="coupon-status">
+                    <image src="/images/icons/icon-expired.png" wx:if="{{index==0}}" />
+                    <image src="/images/icons/icon-used.png" wx:if="{{index==1}}" />
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
