@@ -10,6 +10,7 @@
     "pages/orderList/orderList",
     "pages/addressList/addressList",
     "pages/couponList/couponList",
+    "pages/favorites/favorites",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

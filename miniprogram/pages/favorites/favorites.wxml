@@ -1,0 +1,23 @@
+<!--pages/favorites/favorites.wxml-->
+<view class="favorites-container">
+    <view class="header flex-box flex-h-between">
+        <view>共<text class="goods-num">14</text>件商品</view>
+        <view bindtap="switchEditMode">{{isEditMode?'完成':'编辑'}}</view>
+    </view>
+    <view class="goods-list">
+        <view class="goods-item" direction="horizontal">
+            <checkbox class="cart-checkbox" color="#fff" wx:if="{{isEditMode}}"></checkbox>
+            <image class="goods-image" />
+            <view class="goods-info">
+                <view class="goods-name">【双11预售】最新限量款限定款预售正品cherry樱桃轴红轴机械键盘(含有线/无线鼠标套装)</view>
+                <text class="goods-color-size">黎明灰：全尺寸套装</text>
+                <view class="goods-price flex-box flex-v-center">
+                    <view>¥158.00</view>
+                    <view class="goods-cut-price">
+                        已降价89.00
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
