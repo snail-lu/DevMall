@@ -23,4 +23,11 @@
             <view class="cancel-btn">取消收藏</view>
         </movable-view>
     </movable-area>
+    <view class="footer flex-box flex-h-between flex-v-center" wx:if="{{isEditMode}}">
+        <label style="display: flex;align-items: center;">
+            <checkbox class="cart-checkbox" color="#fff"></checkbox>
+            全选
+        </label>
+        <view class="cancel-btn" bindtap="switchEditMode">取消收藏</view>
+    </view>
 </view>

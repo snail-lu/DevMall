@@ -1,3 +1,7 @@
+.favorites-container {
+    padding-bottom: 110rpx;
+}
+
 .header {
     font-size: 28rpx;
     padding: 20rpx;
@@ -7,28 +11,51 @@
     }
 }
 
+.footer {
+    height: 100rpx;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
+    // opacity: 0.6;
+    font-size: 26rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid #ccc;
+
+    .cancel-btn {
+        height: 50rpx;
+        line-height: 50rpx;
+        background-color: #F80707;
+        color: #fff;
+        padding: 0 16rpx;
+        border-radius: 6rpx;
+    }
+}
+
 .movable-area {
     width: 750rpx;
     height: 240rpx;
     margin-bottom: 20rpx;
-    // margin-left: -100rpx;
 }
 
 
 .movable-view {
     width: 850rpx;
     height: 240rpx;
+
+    .cancel-btn {
+        width: 100rpx;
+        height: 240rpx;
+        line-height: 240rpx;
+        background-color: #F80707;
+        font-size: 24rpx;
+        color: #fff;
+        text-align: center;
+    }
 }
 
-.cancel-btn {
-    width: 100rpx;
-    height: 240rpx;
-    line-height: 240rpx;
-    background-color: #F80707;
-    font-size: 24rpx;
-    color: #fff;
-    text-align: center;
-}
 
 // 复选框样式
 .cart-checkbox {

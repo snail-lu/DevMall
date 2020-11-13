@@ -1,3 +1,7 @@
+.favorites-container {
+  padding-bottom: 110rpx;
+}
+
 .header {
   font-size: 28rpx;
   padding: 20rpx;
@@ -5,6 +9,29 @@
 
 .header .goods-num {
   color: #F80707;
+}
+
+.footer {
+  height: 100rpx;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  font-size: 26rpx;
+  padding: 0 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #ccc;
+}
+
+.footer .cancel-btn {
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: #F80707;
+  color: #fff;
+  padding: 0 16rpx;
+  border-radius: 6rpx;
 }
 
 .movable-area {
@@ -18,7 +45,7 @@
   height: 240rpx;
 }
 
-.cancel-btn {
+.movable-view .cancel-btn {
   width: 100rpx;
   height: 240rpx;
   line-height: 240rpx;
