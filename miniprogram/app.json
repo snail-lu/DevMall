@@ -11,6 +11,7 @@
     "pages/addressList/addressList",
     "pages/couponList/couponList",
     "pages/favorites/favorites",
+    "pages/personInfo/personInfo",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",

@@ -1,0 +1,43 @@
+<!--pages/personInfo/personInfo.wxml-->
+<view class="personinfo-container">
+    <view class="info-item flex-box flex-h-between flex-v-center">
+        <text class="info-title">头像</text>
+        <view class="info-content flex-box flex-v-center">
+            <image class="avatar-img" src="" />
+            <image class="icon-right" src="/images/icons/icon-right.png" />
+        </view>
+    </view>
+    <view class="info-item flex-box flex-h-between flex-v-center">
+        <text class="info-title">用户名</text>
+        <view class="info-content">11012341234_p</view>
+    </view>
+    <view class="info-item flex-box flex-h-between flex-v-center">
+        <text class="info-title">昵称</text>
+        <view class="info-content flex-box flex-v-center">
+            <text>发了芽的土豆</text>
+            <image class="icon-right" src="/images/icons/icon-right.png" />
+        </view>
+    </view>
+    <view class="info-item flex-box flex-h-between flex-v-center">
+        <text class="info-title">性别</text>
+        <view class="info-content flex-box flex-v-center">
+            <picker mode="selector" value="{{gender}}" range="{{['男','女','保密']}}" data-type="gender" bindchange="bindPickerChange">
+                <view class="picker">
+                    {{['男','女','保密'][gender]}}
+                </view>
+            </picker>
+            <image class="icon-right" src="/images/icons/icon-right.png" />
+        </view>
+    </view>
+    <view class="info-item flex-box flex-h-between flex-v-center">
+        <text class="info-title">出生日期</text>
+        <view class="info-content flex-box flex-v-center">
+            <picker mode="date" value="{{date}}" start="1950-01-01" end="2017-09-01" data-type="date" bindchange="bindPickerChange">
+                <view class="picker">
+                    {{date}}
+                </view>
+            </picker>
+            <image class="icon-right" src="/images/icons/icon-right.png" />
+        </view>
+    </view>
+</view>

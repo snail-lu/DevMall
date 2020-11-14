@@ -1,0 +1,35 @@
+.info-item {
+    height: 100rpx;
+    padding: 0 32rpx;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+
+   .picker {
+        min-width: 100rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        text-align: right;
+    }
+
+    .info-title {
+        font-size: 28rpx;
+        color: #333;
+    }
+
+    .info-content {
+        font-size: 26rpx;
+        color: #888;
+    }
+
+    .avatar-img {
+        width: 80rpx;
+        height: 80rpx;
+        border-radius: 50%;
+        background-color: #eee;
+    }
+
+    .icon-right {
+        width: 36rpx;
+        height: 36rpx;
+    }
+}
