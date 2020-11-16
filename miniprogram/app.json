@@ -12,6 +12,9 @@
     "pages/couponList/couponList",
     "pages/favorites/favorites",
     "pages/personInfo/personInfo",
+    "pages/points/points",
+    "pages/member/member",
+    "pages/message/message",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -65,5 +68,8 @@
     }]
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "useExtendedLib": {
+    "weui": true
+  }
 }

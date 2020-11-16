@@ -1,0 +1,22 @@
+<!--pages/points/points.wxml-->
+<view class="point-container">
+  <view class="header flex-box-column flex-h-center">
+    <view>当前可用积分</view>
+    <view class="avaliable-point">{{3000}}</view>
+  </view>
+  <view class="point-box">
+    <view class="point-list" wx:for="{{pointsList}}" wx:key="index">
+      <view class="date-info">
+        {{item.date}}
+      </view>
+      <view class="point-item flex-box flex-h-between flex-v-center" wx:for="{{item.list}}" wx:for-item="pointItem" wx:key="*this">
+        <view class="point-item-left">
+          <view class="point-title">{{pointItem.change_type}}</view>
+          <text class="point-date">{{pointItem.change_date}}</text>
+        </view>
+        <view class="point-income">{{pointItem.change_point}}</view>
+      </view>
+    </view>
+    <view wx:if='{{pointsList.length < 1}}' class="no-data">无积分流水信息~</view>
+  </view>  
+</view>

@@ -1,0 +1,54 @@
+<!--pages/user/rights/rights.wxml-->
+<view class="member-container">
+  <view class="header">
+  <view class="header-box">
+    <view class="header-border">
+      <view class="flex-box">
+        <view class="avatar flex-shrink-0">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="flex-item-1">
+          <view class="nick-name flex-box flex-h-between flex-v-center">
+            <view class="user-name single-line-overflow">{{userInfo.name}}测试测试测试测试测试测试测试测试</view>
+            <view class="member-label flex-box flex-v-center">
+              <image src="/images/icons/icon-level-{{userInfo.currentLevel}}.png" />
+              <view>{{userInfo.currentLevelLabel}}</view>
+            </view>
+          </view>
+          <view class="card-no">ID: {{userInfo.cardNo}}</view>
+        </view>
+      </view>
+      <view class="member-progress-box">
+        <view class="label-box flex-box flex-h-between">
+          <text>普通会员</text>
+          <text>白银会员</text>
+        </view>
+        <view class="progress-box">
+          <view class="current-box" style="width:{{userInfo.currentPoint*100/userInfo.nextLevelPoint}}%"></view>
+        </view>
+        <view class="desc-box flex-box flex-h-between">
+          <text>还需消费{{userInfo.nextLevelPoint-userInfo.currentPoint}}元升级至{{'白银会员'}}</text>
+          <text>{{userInfo.currentPoint}}/{{userInfo.nextLevelPoint}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+
+  <!-- <view class="rights-img">
+    <view class="label">会员权益</view>
+    <image src="{{imageUrl}}" mode="widthFix"></image>
+  </view> -->
+
+  <view class="rights-desc-list">
+    <view class="desc-item" wx:for="{{descList}}" wx:for-item="descItem" wx:key="id">
+      <view class="desc-label flex-box flex-h-between flex-v-center" data-index="{{index}}" bindtap="showDescDetail">
+        <text>{{descItem.label}}</text>
+        <image class="{{descItem.show?'icon-up':''}}" src="/images/icons/icon-down.png" />
+      </view>
+      <view class="desc-content" wx:if="{{descItem.show}}">
+        <view class="content-item" wx:for="{{descItem.content}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,40 @@
+.header {
+  height: 172rpx;
+  background-color: #3d3d3d;
+  color: #fff;
+  font-size: 24rpx;
+  padding-left: 48rpx;
+}
+
+.header .avaliable-point {
+  font-size: 66rpx;
+}
+
+.date-info {
+  background-color: #EBEBEB;
+  padding: 12rpx 24rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.point-item {
+  padding: 28rpx 30rpx 27rpx 24rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.point-title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.point-date {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.point-income {
+  color: #f80707;
+  font-size: 28rpx;
+}
+/*# sourceMappingURL=points.wxss.map */

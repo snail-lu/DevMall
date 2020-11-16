@@ -71,6 +71,11 @@ Page({
         label: '地址簿',
         icon: 'address',
         pageTarget: '/pages/addressList/addressList'
+      },
+      { 
+        label: '消息中心',
+        icon: 'message',
+        pageTarget: '/pages/message/message'
       }
     ]
   },

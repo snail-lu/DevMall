@@ -1,0 +1,27 @@
+<!--pages/news/news.wxml-->
+<view class="news-container">
+    <block wx:if="{{newsList.length>0}}">
+        <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap" data-index="{{index}}" wx:for="{{newsList}}" wx:key="id">
+            <view class="news-item flex-box flex-v-center">
+                <view class="icon-img">
+                    <image src="/images/icons/icon-message-{{item.type}}.png" />
+                    <view class="unread-label" wx:if="{{item.status==0}}"></view>
+                </view>
+                <view class="news-info flex-item-1">
+                    <view class="flex-box flex-h-between flex-v-center">
+                        <text class="news-title oneline-overflow">{{item.title}}</text>
+                        <text class="news-date oneline-overflow">{{item.date}}</text>
+                    </view>
+                    <view class="news-desc flex-box flex-h-between flex-v-center">
+                        <view class="flex-item-1 oneline-overflow">{{item.desc}}</view>
+                        <image src="/images/icons/icon-right.png" />
+                    </view>
+                </view>
+            </view>
+        </mp-slideview>
+    </block>
+    <block wx:else>
+        <view class="no-data">还没有收到消息哦~</view>
+    </block>
+</view>
+

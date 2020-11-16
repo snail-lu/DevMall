@@ -26,7 +26,7 @@
           </view>
           <view>{{userInfo.currentPoint}}/{{userInfo.totalPoint}}</view>
         </view>
-        <view class="box-r">查看积分</view>
+        <view class="box-r" data-url="/pages/points/points" bindtap="navigateTo">查看积分</view>
       </view>
       <view class="member-label">{{userInfo.memberLabel}}</view>
       
@@ -38,7 +38,7 @@
     </view>
   </view>
 
-  <view class="member-banner">
+  <view class="member-banner" data-url="/pages/member/member" bindtap="navigateTo">
     <image class="bg" src="/images/my/member_bg.png" />
     <view class="title"><text>VIP</text> 会员中心</view>
       <view class="btn">
