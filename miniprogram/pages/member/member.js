@@ -112,9 +112,13 @@ Page({
   },
 
   showDescDetail(e) {
-    const { index } = e.currentTarget.dataset;
+    const currentIndex = e.currentTarget.dataset.index;
     const { descList } = this.data;
-    descList[index].show = !descList[index].show;
+
+    descList.forEach((item,index) => {
+      item.show = currentIndex===index ? !item.show : false;
+    })
+    
     this.setData({
       descList
     })

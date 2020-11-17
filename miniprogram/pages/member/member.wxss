@@ -5,8 +5,8 @@
 }
 
 .header .header-box {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f54f4f), to(#e76262));
-  background-image: linear-gradient(#f54f4f, #e76262);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f54f4f), to(#eeb7b7));
+  background-image: linear-gradient(#f54f4f, #eeb7b7);
   height: 100%;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;
@@ -147,6 +147,8 @@
   padding: 18rpx 32rpx 30rpx 8rpx;
   margin-left: 24rpx;
   border-bottom: 1px solid #d7d7d7;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 .desc-item .desc-content .content-item {
