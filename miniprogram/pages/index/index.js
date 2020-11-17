@@ -111,6 +111,11 @@ Page({
       url: '/pages/search/search',
     })
   },
+
+  // 跳转商品详情页
+  toGoodsDetail(){
+    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail' });
+  },
   
 
   /**

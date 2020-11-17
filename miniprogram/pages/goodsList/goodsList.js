@@ -40,11 +40,17 @@ Page({
     })
   },
 
+  // 切换列表模式
   switchListMode(e) {
     const { mode } = e.currentTarget.dataset;
     this.setData({
       listMode: mode==1 ? 2 : 1
     })
+  },
+
+  // 跳转商品详情
+  toGoodsDetail(){
+    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail' });
   },
 
   /**

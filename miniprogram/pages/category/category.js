@@ -162,6 +162,10 @@ Page({
     })
   },
 
+  // 跳转商品列表
+  toGoodsList(){
+    wx.navigateTo({ url: '/pages/goodsList/goodsList' });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

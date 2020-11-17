@@ -175,7 +175,7 @@
 }
 
 .goods-detail-box {
-  margin: 20rpx 0;
+  margin: 20rpx 0 110rpx;
   border-radius: 16rpx;
   background-color: #fff;
   padding: 0 32rpx 40rpx;
@@ -217,43 +217,104 @@
   width: 100%;
 }
 
+.goods-detail-box .goods-spec-box {
+  border-bottom: 1px solid #999;
+}
+
 .goods-detail-box .goods-spec-box .spec-label {
   text-align: center;
   position: relative;
-  z-index: 100;
+  margin: 20rpx 0;
 }
 
 .goods-detail-box .goods-spec-box .spec-label text {
+  display: inline-block;
   background-color: #fff;
+  padding: 0 20rpx;
 }
 
 .goods-detail-box .goods-spec-box .spec-label::after {
   position: absolute;
   content: '';
   height: 1px;
-  width: 100%;
+  width: 35%;
   background-color: #ccc;
   top: 50%;
   left: 0;
 }
 
+.goods-detail-box .goods-spec-box .spec-label::before {
+  position: absolute;
+  content: '';
+  height: 1px;
+  width: 35%;
+  background-color: #ccc;
+  top: 50%;
+  right: 0;
+}
+
 .goods-detail-box .goods-spec-box .spec-table-content {
   color: #999;
+  font-size: 26rpx;
 }
 
 .goods-detail-box .goods-spec-box .spec-table-content .table-header {
   border: 1px solid #999;
   text-align: center;
+  border-bottom: none;
 }
 
 .goods-detail-box .goods-spec-box .spec-table-content .content-key {
-  width: 200rpx;
+  width: 220rpx;
   border: 1px solid #999;
+  border-bottom: none;
   text-align: center;
 }
 
 .goods-detail-box .goods-spec-box .spec-table-content .content-value {
-  border: 1px solid #999;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
   text-align: center;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110rpx;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  padding: 0 32rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.footer .icon-btn {
+  font-size: 24rpx;
+}
+
+.footer .icon-btn image {
+  width: 50rpx;
+  height: 50rpx;
+  background-color: #f7f7f7;
+}
+
+.footer .btn-item {
+  height: 80rpx;
+  color: #fff;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+}
+
+.footer .btn-item:first-child {
+  background-color: #d4c435;
+  margin-right: 20rpx;
+}
+
+.footer .btn-item:last-child {
+  background-color: #f80707;
 }
 /*# sourceMappingURL=goodsDetail.wxss.map */

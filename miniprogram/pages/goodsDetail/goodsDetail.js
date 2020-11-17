@@ -13,7 +13,7 @@ Page({
       'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_33.jpg',
       'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_34.jpg'
     ],
-    currentTabIndex: 1,
+    currentTabIndex: 0,
     goodsDescList: [
       'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_00.jpg',
       'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_30.jpg',

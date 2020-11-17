@@ -109,7 +109,7 @@
         
         <!-- 规格参数 -->
         <view class="goods-spec-box" wx:if="{{currentTabIndex==1}}">
-            <view wx:for="{{goodsSpecList}}" wx:key="id">
+            <view class="spec-item" wx:for="{{goodsSpecList}}" wx:key="id">
                 <view class="spec-label"><text>{{item.label}}</text></view>
                 <view class="spec-text-content" wx:if="{{item.type=='text'}}">
                     {{item.content}}
@@ -129,6 +129,23 @@
         <!-- 售后保障 -->
         <view class="goods-service-box" wx:if="{{currentTabIndex==2}}">
 
+        </view>
+    </view>
+
+    <view class="footer flex-box flex-h-between flex-v-center">
+        <view class="flex-box flex-item-1 flex-h-around">
+            <view class="icon-btn flex-box-column flex-v-center flex-h-between">
+                <image src="" />
+                <view>客服</view>
+            </view>
+             <view class="icon-btn flex-box-column flex-v-center flex-h-between">
+                <image src="" />
+                <view>购物车</view>
+            </view>
+        </view>
+        <view class="flex-box">
+            <view class="btn-item">加入购物车</view>
+            <view class="btn-item">立即购买</view>
         </view>
     </view>
 </view>

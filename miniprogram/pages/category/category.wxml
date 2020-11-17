@@ -47,16 +47,16 @@
         <view class="second-cate">
             <!-- <view wx:for="{{categoryList}}" wx:key="id"> -->
                 <scroll-view scroll-y="{{true}}" class="second-cate-scroll" scroll-top="{{scrollTop}}">
-                <view class="cate-banner">{{categoryList[currentCateIndex].label}}</view>
-                <view class="cate-item" wx:for="{{10}}" wx:for-item="secondCateItem" wx:key="*this">
-                    <view class="title">二级类目{{secondCateItem}}</view>
-                    <view class="third-cate">
-                        <view class="third-cate-item" wx:for="{{8}}" wx:key="*this" wx:for-item="thirdCateItem">
-                            <view class="item-image"></view>
-                            <view class="item-name">三级类目{{thirdCateItem}}</view>
+                    <view class="cate-banner">{{categoryList[currentCateIndex].label}}</view>
+                    <view class="cate-item" wx:for="{{10}}" wx:for-item="secondCateItem" wx:key="*this">
+                        <view class="title">二级类目{{secondCateItem}}</view>
+                        <view class="third-cate">
+                            <view class="third-cate-item" wx:for="{{8}}" wx:key="*this" wx:for-item="thirdCateItem" bindtap="toGoodsList">
+                                <view class="item-image"></view>
+                                <view class="item-name">三级类目{{thirdCateItem}}</view>
+                            </view>
                         </view>
                     </view>
-                </view>
                 </scroll-view>
             <!-- </view> -->
         </view>

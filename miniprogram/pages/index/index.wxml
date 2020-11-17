@@ -53,7 +53,7 @@
             </view>
         </view>
         <view class="goods-box">
-            <view class="goods-item flex-box-column" wx:for="{{39}}" wx:key="*this">
+            <view class="goods-item flex-box-column" wx:for="{{39}}" wx:key="*this" bindtap="toGoodsDetail">
                 <image src="" />
                 <view class="goods-name double-line-overflow">【品牌】耐克 男子NIKE LEBRON XVII LOW EP 篮球鞋</view>
                 <view class="goods-price">¥1299.00</view>

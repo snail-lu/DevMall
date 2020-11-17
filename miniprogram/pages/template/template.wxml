@@ -1,6 +1,6 @@
 <!-- 商品项模板1 - 单列 -->
 <template name="goodsItem1">
-    <view class="goods-item-1">
+    <view class="goods-item-1" bindtap="toGoodsDetail">
         <image class="goods-image"></image>
         <view class="goods-info">
             <view class="goods-name">【双11预售】最新限量款限定款预售正品cherry樱桃轴红轴机械键盘(含有线/无线鼠标套装)</view>
@@ -12,7 +12,7 @@
 
 <!-- 商品项模板2 - 双列 -->
 <template name="goodsItem2">
-    <view class="goods-item-2">
+    <view class="goods-item-2" bindtap="toGoodsDetail">
         <image class="goods-image"></image>
         <view class="goods-info">
             <view class="goods-name">【双11预售】最新限量款限定款预售正品cherry樱桃轴红轴机械键盘(含有线/无线鼠标套装)</view>
