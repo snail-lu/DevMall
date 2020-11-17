@@ -1,0 +1,134 @@
+<!--pages/goodsDetail/goodsDetail.wxml-->
+<view class="goods-detail-container">
+    <!-- 顶部信息 -->
+    <view class="banner-box">
+        <!-- 轮播图 -->
+        <swiper class="swiper-box" autoplay="{{true}}" circular="{{true}}">
+            <swiper-item class="swiper-item" item-id="" wx:for="{{goodsGallery}}" wx:key="*this">
+                <image class="gallery-img" src="{{item}}" />
+            </swiper-item>
+        </swiper>
+
+        <!-- 商品信息 -->
+        <view class="goods-info">
+            <view class="flex-box flex-h-between flex-v-center">
+                <view class="goods-price">¥4999.00</view>
+                <view class="flex-box flex-h-center">
+                    <view class="btn-item">
+                        <image src="" />
+                        <view>降价提醒</view>
+                    </view>
+                    <view class="btn-item">
+                        <image src="" />
+                        <view>收藏</view>
+                    </view>
+                </view>
+            </view>
+            <view class="goods-promotion flex-box">
+                <view class="promotion-item">满200减20</view>
+                <view class="promotion-item">每满300减40</view>
+                <view class="promotion-item">满额返券</view>
+            </view>
+            <view class="goods-name">
+                <text class="self-support-label">自营</text>
+                43英寸落地立式广告机触控一体机触摸液晶屏显示器查询云智能数字标牌Windows i3
+            </view>
+        </view>
+    </view>
+
+    <!-- 商品属性、地址信息选择栏 -->
+    <view class="goods-select-box">
+        <view class="select-item flex-box">
+            <view class="label">已选</view>
+            <view class="flex-item-1">42/43英寸，Windows i3，1个，可选服务</view>
+            <view class="">•••</view>
+        </view>
+        <view class="select-item flex-box">
+            <view class="label">送至</view>
+            <view class="flex-item-1">上海市浦东新区人民东路51号1号楼101室</view>
+            <view class="">•••</view>
+        </view>
+        <view class="select-item flex-box">
+            <view class="label">重量</view>
+            <view class="flex-item-1">不计重量</view>
+        </view>
+    </view>
+
+    <!-- 评价 -->
+    <view class="comment-list">
+        <view class="header flex-box fle-v-center flex-h-between">
+            <view class="title">
+                <text>评价</text>
+                600+条
+            </view>
+            <view class="positive-rating flex-box flex-v-center">
+                <text>好评度98%</text>
+                <image src="/images/icons/icon-right.png" />
+            </view>
+        </view>
+        <view class="label-list flex-box">
+            <view class="label-item">十分大气</view>
+            <view class="label-item">时尚大气</view>
+            <view class="label-item">简单方便</view>
+        </view>
+        <view class="comment-item">
+            <view class="flex-box flex-v-center flex-h-between">
+                <view class="user flex-box flex-v-center">
+                    <image src="" class="avatar-img" />
+                    <text>A1234****32143</text>
+                    <view class="star">★★★★★</view>
+                </view>
+                <view class="date">2020-05-01</view>
+            </view>
+            <view class="comment-content">
+                第一次购买，感觉还行，客服很有耐心。
+            </view>
+            <view class="goods-property">42/43英寸，Windows i3</view>
+            <view class="flex-box flex-h-center">
+                <view class="all-comment-btn">查看全部评价</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="goods-detail-box">
+        <view class="tab-box flex-box">
+            <view 
+                class="tab-item flex-item-1 {{currentTabIndex==index?'tab-item-active':''}}" 
+                wx:for="{{['商品介绍','规格参数','售后保障']}}" 
+                wx:key="*this"
+                data-index="{{index}}"
+                bindtap="switchTab"
+                >
+                {{item}}
+            </view>
+        </view>
+        <!-- 商品介绍 -->
+        <view class="goods-desc-box" wx:if="{{currentTabIndex==0}}">
+            <image src="{{item}}" mode="widthFix" wx:for="{{goodsDescList}}" wx:key="*this" />
+        </view>
+        
+        <!-- 规格参数 -->
+        <view class="goods-spec-box" wx:if="{{currentTabIndex==1}}">
+            <view wx:for="{{goodsSpecList}}" wx:key="id">
+                <view class="spec-label"><text>{{item.label}}</text></view>
+                <view class="spec-text-content" wx:if="{{item.type=='text'}}">
+                    {{item.content}}
+                </view>
+                <view class="spec-table-content" wx:if="{{item.type=='table'}}">
+                    <view wx:for="{{item.content}}" wx:for-item="specItem" wx:key="title">
+                        <view class="table-header">{{specItem.title}}</view>
+                        <view class="table-content flex-box" wx:for="{{specItem.subContent}}" wx:for-item="subItem" wx:key="key">
+                            <view class="content-key">{{subItem.key}}</view>
+                            <view class="content-value flex-item-1">{{subItem.value}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        
+        <!-- 售后保障 -->
+        <view class="goods-service-box" wx:if="{{currentTabIndex==2}}">
+
+        </view>
+    </view>
+</view>
