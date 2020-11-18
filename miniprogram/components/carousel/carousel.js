@@ -3,7 +3,7 @@ Component({
     properties: {
         source: {
             type: Array,
-            value: ['screen-A', 'screen-B', 'screen-C', 'screen-D']
+            value: []
         },
         // 指示点
         indicatorDots: {

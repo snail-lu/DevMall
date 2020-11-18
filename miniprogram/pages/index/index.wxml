@@ -11,11 +11,11 @@
     </view>
     <view class="content">
         <view class="carousel-box">
-            <carousel></carousel>
+            <carousel source="{{bannerList}}"></carousel>
         </view>
-        <view class="menu-box">
+        <view class="menu-box" wx:if="{{menuList.length>0}}">
             <view class="menu-item" wx:for="{{menuList}}" wx:key="id">
-                <image src="" />
+                <image src="{{item.imageUrl}}" />
                 <view>{{item.label}}</view>
             </view>
         </view>

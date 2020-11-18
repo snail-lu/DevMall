@@ -1,5 +1,6 @@
-import { getNavigationBarHeight } from '../../utils/index'
-// pages/index/index.js
+import { getNavigationBarHeight } from '../../utils/index';
+import DatabaseService from '../../services/db';
+
 Page({
 
   /**
@@ -8,94 +9,31 @@ Page({
   data: {
     navigationBarHeight: 40,
     statusBarHeight: 20,
-    hotWords: ['iPhone','荣耀手机','充电宝','毛呢大衣'],
-    menuList: [
-      {
-        id: '1',
-        label: '超市',
-        icon: '',
-      },
-      {
-        id: '2',
-        label: '家电',
-        icon: '',
-      },
-      {
-        id: '3',
-        label: '服饰',
-        icon: '',
-      },
-      {
-        id: '4',
-        label: '手机',
-        icon: '',
-      },
-      {
-        id: '5',
-        label: '手机',
-        icon: '',
-      },
-      {
-        id: '6',
-        label: '财富',
-        icon: '',
-      },
-      {
-        id: '7',
-        label: '生鲜',
-        icon: '',
-      },
-      {
-        id: '8',
-        label: '领券',
-        icon: '',
-      },
-      {
-        id: '9',
-        label: '免费水果',
-        icon: '',
-      },
-      {
-        id: '10',
-        label: '全部频道',
-        icon: '',
-      },
-    ],
-    tabList: [
-      {
-        label: '精选',
-        desc: '猜你喜欢',
-        id: '101'
-      },
-      {
-        label: '自营',
-        desc: '急速配送',
-        id: '102'
-      },
-      {
-        label: '海购',
-        desc: '全球采买',
-        id: '103'
-      },
-      {
-        label: '特价',
-        desc: '正品低价',
-        id: '104'
-      }
-    ],
+    hotWords: [],
+    menuList: [],
+    tabList: [],
     currentTabId: 101,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     const { navigationBarHeight, statusBarHeight } = getNavigationBarHeight();
+    const panelData = await DatabaseService.query('configs', {"key": "index-panel"});
+    const words = await DatabaseService.query('configs', {"key": "hot-words"});
+    const { menuList, bannerList, tabList } = panelData[0];
+    const hotWords = words[0].value;
+    
     this.setData({
       navigationBarHeight,
-      statusBarHeight
+      statusBarHeight,
+      bannerList,
+      menuList,
+      tabList,
+      currentTabId: tabList[0].id,
+      hotWords
     })
-    console.log(navigationBarHeight)
   },
 
   switchTab(e){

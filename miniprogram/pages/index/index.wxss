@@ -86,7 +86,6 @@
 .home-container .content .menu-box .menu-item image {
   width: 50rpx;
   height: 50rpx;
-  background-color: #f6f6f6;
 }
 
 .home-container .content .activity-box {
