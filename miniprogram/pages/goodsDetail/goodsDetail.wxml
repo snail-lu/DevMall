@@ -5,7 +5,7 @@
         <!-- 轮播图 -->
         <swiper class="swiper-box" autoplay="{{true}}" circular="{{true}}">
             <swiper-item class="swiper-item" item-id="" wx:for="{{goodsGallery}}" wx:key="*this">
-                <image class="gallery-img" src="{{item}}" />
+                <image class="gallery-img" src="{{item}}" data-url="{{item}}" bindtap="previewImage" />
             </swiper-item>
         </swiper>
 
@@ -15,11 +15,11 @@
                 <view class="goods-price">¥4999.00</view>
                 <view class="flex-box flex-h-center">
                     <view class="btn-item">
-                        <image src="" />
+                        <image src="/images/icons/icon-message.png" />
                         <view>降价提醒</view>
                     </view>
                     <view class="btn-item">
-                        <image src="" />
+                        <image src="/images/icons/icon-collect.png" />
                         <view>收藏</view>
                     </view>
                 </view>
@@ -41,12 +41,12 @@
         <view class="select-item flex-box">
             <view class="label">已选</view>
             <view class="flex-item-1">42/43英寸，Windows i3，1个，可选服务</view>
-            <view class="">•••</view>
+            <image src="/images/icons/more.png" />
         </view>
         <view class="select-item flex-box">
             <view class="label">送至</view>
             <view class="flex-item-1">上海市浦东新区人民东路51号1号楼101室</view>
-            <view class="">•••</view>
+            <image src="/images/icons/more.png" />
         </view>
         <view class="select-item flex-box">
             <view class="label">重量</view>
@@ -74,7 +74,7 @@
         <view class="comment-item">
             <view class="flex-box flex-v-center flex-h-between">
                 <view class="user flex-box flex-v-center">
-                    <image src="" class="avatar-img" />
+                    <image src="/images/icons/icon-avatar.png" class="avatar-img" />
                     <text>A1234****32143</text>
                     <view class="star">★★★★★</view>
                 </view>
@@ -132,14 +132,18 @@
         </view>
     </view>
 
+    <view class="top-btn flex-box flex-v-center flex-h-center">
+        <image src="/images/icons/icon-toTop.png" />
+    </view>
+
     <view class="footer flex-box flex-h-between flex-v-center">
         <view class="flex-box flex-item-1 flex-h-around">
             <view class="icon-btn flex-box-column flex-v-center flex-h-between">
-                <image src="" />
+                <image src="/images/icons/icon-kefu.png" />
                 <view>客服</view>
             </view>
              <view class="icon-btn flex-box-column flex-v-center flex-h-between">
-                <image src="" />
+                <image src="/images/icons/icon-cart-mini.png" />
                 <view>购物车</view>
             </view>
         </view>

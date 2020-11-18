@@ -127,11 +127,22 @@ Page({
 
   },
 
+  // 商详tab切换
   switchTab(e){
     const { index } = e.currentTarget.dataset;
     this.setData({
       currentTabIndex: index
     })
+  },
+
+  // 轮播图片预览
+  previewImage(e){
+    const { url } = e.currentTarget.dataset;
+    const { goodsGallery } = this.data;
+    wx.previewImage({
+      current: url,
+      urls: goodsGallery
+    });
   },
 
   /**
