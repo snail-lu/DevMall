@@ -13,6 +13,7 @@ Page({
     menuList: [],
     tabList: [],
     currentTabId: 101,
+    activityCutTime: "00:00:00"
   },
 
   /**
@@ -22,15 +23,17 @@ Page({
     const { navigationBarHeight, statusBarHeight } = getNavigationBarHeight();
     const panelData = await DatabaseService.query('configs', {"key": "index-panel"});
     const words = await DatabaseService.query('configs', {"key": "hot-words"});
-    const { menuList, bannerList, tabList } = panelData[0];
+    const { menuList, bannerList, tabList, activity } = panelData[0];
     const hotWords = words[0].value;
     
+    this.startActivityTimer(activity);
     this.setData({
       navigationBarHeight,
       statusBarHeight,
       bannerList,
       menuList,
       tabList,
+      activity,
       currentTabId: tabList[0].id,
       hotWords
     })
@@ -53,6 +56,25 @@ Page({
   // 跳转商品详情页
   toGoodsDetail(){
     wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail' });
+  },
+
+  // 活动计时器
+  startActivityTimer(info){
+    if(info.dateInfo.leftoverTime>0){
+      let leftoverTime = info.dateInfo.leftoverTime;
+      this.timer = setInterval(()=> {
+        let h = parseInt(leftoverTime/3600);
+        let m = parseInt((leftoverTime%3600)/60);
+        let s = parseInt(leftoverTime%60);
+        let _h = h<10?'0'+h:h;
+        let _m = m<10?'0'+m:m;
+        let _s = s<10?'0'+s:s;
+        this.setData({
+          activityCutTime: _h+':'+_m+':'+_s
+        })
+        leftoverTime--;
+      }, 1000)
+    }
   },
   
 
@@ -81,7 +103,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(this.timer);
   },
 
   /**

@@ -115,7 +115,7 @@
             .goods-box {
                 width: 100%;
                 display: flex;
-                max-height: fit-content;
+                overflow-x: auto;
 
                 .goods-item {
                     display: inline-block;
@@ -149,6 +149,13 @@
                         height: 20rpx;
                     }
                 }
+            }
+
+            ::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+                color: transparent;
             }
         }
     }

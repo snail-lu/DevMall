@@ -23,24 +23,24 @@
         <view class="activity-box">
             <view class="header flex-box flex-h-between">
                 <view class="header-l flex-box flex-v-center">
-                    <text>秒杀专场</text>
+                    <text>{{activity.title}}</text>
                     <view class="cutdown-box flex-box">
-                        <view class="box-l">18点场</view>
-                        <view class="box-r">23:59:59</view>
+                        <view class="box-l">{{activity.dateInfo.session}}</view>
+                        <view class="box-r">{{activityCutTime}}</view>
                     </view>
                 </view>
                 <view class="header-r flex-box flex-v-center">更多好货限时疯抢<image src="/images/icons/icon-right.png" /></view>
             </view>
-            <scroll-view class="goods-box" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" enable-flex="{{true}}">
-                <view class="goods-item" wx:for="{{20}}" wx:key="*this">
-                    <image src="" />
-                    <view>¥3669</view>
-                    <view class="origin-price">¥5599</view>
+            <view class="goods-box">
+                <view class="goods-item" wx:for="{{activity.goodsList}}" wx:key="sn">
+                    <image src="{{item.imageUrl}}" />
+                    <view>¥{{item.salePrice}}</view>
+                    <view class="origin-price">¥{{item.originPrice}}</view>
                 </view>
                 <view class="more-goods-btn">
                     查看更多
                 </view>
-            </scroll-view>
+            </view>
         </view>
     </view>
 

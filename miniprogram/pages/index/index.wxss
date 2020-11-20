@@ -138,9 +138,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
+  overflow-x: auto;
 }
 
 .home-container .content .activity-box .goods-box .goods-item {
@@ -182,6 +180,13 @@
 .home-container .content .activity-box .goods-box .more-goods-btn image {
   width: 20rpx;
   height: 20rpx;
+}
+
+.home-container .content .activity-box ::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .home-container .goods-list .tab-item {
