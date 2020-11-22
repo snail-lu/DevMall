@@ -24,7 +24,7 @@
     </view>
     <view class="goods-list flex-box flex-wrap flex-h-between">
         <block wx:if="{{listMode==1}}">
-            <template is="goodsItem1" wx:for="{{goodsList}}" wx:key="*this"></template>
+            <template is="goodsItem1" wx:for="{{goodsList}}" wx:key="id" data="{{...item}}"></template>
         </block>
         <block wx:if="{{listMode==2}}">
             <template is="goodsItem2" wx:for="{{goodsList}}" wx:key="*this"></template>

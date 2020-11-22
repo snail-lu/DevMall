@@ -1,27 +1,15 @@
 // pages/goodsDetail/goodsDetail.js
+import DatabaseService from '../../services/db';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    goodsGallery: [
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_00.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_30.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_31.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_32.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_33.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_34.jpg'
-    ],
     currentTabIndex: 0,
-    goodsDescList: [
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_00.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_30.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_31.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_32.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_33.jpg',
-      'https://pic.bonwebuy.com/sources/images/goods/MB/294974/294974_34.jpg'
-    ],
+    goodsGallery: [],
+    goodsDescList: [],
     goodsSpecList: [
       {
         id: 0,
@@ -117,14 +105,30 @@ Page({
           }
         ]
       }
-    ]
+    ],
+    goodsInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let { sn } = options;
+    this.getGoodsDetail(sn);
+  },
 
+  // 获取商品详情
+  async getGoodsDetail(sn){
+      let res = await DatabaseService.query('goods', { sn });
+      if(res[0]){
+        const { goodsGallery, goodsDescList, colorArray } = res[0];
+        this.setData({
+          goodsGallery,
+          goodsDescList,
+          colorArray,
+          goodsInfo: res[0]
+        })
+      }
   },
 
   // 商详tab切换

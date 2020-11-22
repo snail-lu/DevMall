@@ -12,7 +12,7 @@
         <!-- 商品信息 -->
         <view class="goods-info">
             <view class="flex-box flex-h-between flex-v-center">
-                <view class="goods-price">¥4999.00</view>
+                <view class="goods-price">¥{{goodsInfo.salePrice}}</view>
                 <view class="flex-box flex-h-center">
                     <view class="btn-item">
                         <image src="/images/icons/icon-message.png" />
@@ -31,7 +31,7 @@
             </view>
             <view class="goods-name">
                 <text class="self-support-label">自营</text>
-                43英寸落地立式广告机触控一体机触摸液晶屏显示器查询云智能数字标牌Windows i3
+                {{goodsInfo.name}}
             </view>
         </view>
     </view>

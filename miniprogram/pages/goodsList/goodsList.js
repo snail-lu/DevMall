@@ -1,4 +1,5 @@
 // pages/goodsList/goodsList.js
+import DatabaseService from '../../services/db';
 Page({
 
   /**
@@ -14,7 +15,7 @@ Page({
     currentField: 'sales',  // 当前排序字段
     fieldValue: 1,          // 当前排序值 1：降序   2： 升序
     listMode: 1,            // 列表模式   1: 单列   2：双列
-    goodsList: ['1','2','3','4','5','6','7']
+    goodsList: []
   },
 
   /**
@@ -22,13 +23,19 @@ Page({
    */
   onLoad: function (options) {
     const { words } = options;
-    wx.setNavigationBarTitle({ title: words })
+    if(words){
+      wx.setNavigationBarTitle({ title: words })
+    }
     this.getGoodsList(words)
   },
 
   // 获取商品列表
-  getGoodsList(words) {
+  async getGoodsList(words) {
     console.log(words, 'words')
+    let res = await DatabaseService.query('goods');
+    this.setData({
+      goodsList: res
+    })
   },
 
   // tab栏切换
@@ -49,8 +56,9 @@ Page({
   },
 
   // 跳转商品详情
-  toGoodsDetail(){
-    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail' });
+  toGoodsDetail(e){
+    let { sn } = e.currentTarget.dataset;
+    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail?sn='+sn });
   },
 
   /**
