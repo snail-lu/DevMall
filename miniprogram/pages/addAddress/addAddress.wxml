@@ -1,0 +1,51 @@
+<!--pages/addAddress/addAddress.wxml-->
+<view class="edit-address-container">
+    <!-- 收货人 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>收货人</label>
+        <input type="text" placeholder="姓名" placeholder-class="username-placeholder" data-type="userName" bindinput="bindInput"  value="{{addressInfo.userName}}"/>
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>联系方式</label>
+        <input type="number" placeholder="手机号码" placeholder-class="username-placeholder" data-type="mobile" bindinput="bindInput" value="{{addressInfo.mobile}}"/>
+    </view>
+
+    <!-- 所在地区 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>所在地区</label>
+        <picker mode="multiSelector" range="{{region}}" value="{{multiIndex}}" bindchange="bindRegionChange" bindcolumnchange="bindMultiPickerColumnChange">
+            <view wx:if="{{addressInfo.province}}">
+                {{addressInfo.provinceName}},{{addressInfo.cityName}},{{addressInfo.districtName}}
+            </view>
+            <view wx:else class='region-placeholder' >
+                地区信息
+            </view>
+            
+        </picker>
+    </view>
+
+    <!-- 详细地址 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>详细地址</label>
+        <input type="text" placeholder="街道门牌信息" placeholder-class="username-placeholder" data-type="address" bindinput="bindInput" value="{{addressInfo.address}}"/>
+    </view>
+
+    <!-- 地址标签 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>地址标签</label>
+        <view class="address-label-box"></view>
+    </view>
+
+    <!-- 设为默认 -->
+    <view class="address-item flex-box flex-h-between flex-v-center">
+        <label>设为默认地址</label>
+        <switch checked="{{address.isDefault}}" color="#f80707"></switch>
+    </view>
+    
+    <!-- 保存按钮 -->
+    <view class="save-btn" bindtap="onSave">{{isEdit?'确认':'保存'}}</view>
+    <view class="default-btn" data-id="{{id}}" bindtap="onDelete" wx:if="{{isEdit}}">删除地址</view>
+</view>
+

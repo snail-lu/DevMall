@@ -10,6 +10,7 @@
     "pages/goodsDetail/goodsDetail",
     "pages/orderList/orderList",
     "pages/addressList/addressList",
+    "pages/addAddress/addAddress",
     "pages/couponList/couponList",
     "pages/favorites/favorites",
     "pages/personInfo/personInfo",

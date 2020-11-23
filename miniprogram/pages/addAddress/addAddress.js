@@ -1,6 +1,5 @@
-// pages/addressList/addressList.js
+// pages/addAddress/addAddress.js
 import DatabaseService from '../../services/db';
-import Database from '../../services/db';
 
 Page({
 
@@ -8,26 +7,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressList: [], // 地址列表
+    isEdit: false,  // 当前为编辑/新增
+    addressInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    let res = await DatabaseService.query('address');
-    this.setData({
-      addressList: res || []
+    let { id } = options;
+    let title = "新增收货地址";
+    if(id){
+      let addressInfo = await DatabaseService.query('address', { _id: id }, {_id: false});
+      title = "编辑收货地址";
+      this.setData({
+        id,
+        addressInfo: addressInfo[0],
+        isEdit: true
+      })
+    }
+
+    wx.setNavigationBarTitle({
+      title
     })
   },
 
-  // 地址新增/编辑
-  addAddress(e){
-    let { id } = e.currentTarget.dataset;
-    let params = id ? "?id="+id : "";
-    wx.navigateTo({
-      url: '/pages/addAddress/addAddress'+params
-    });
+  bindInput(e){
+    const { addressInfo } = this.data;
+    const { type } = e.currentTarget.dataset;
+    const value = e.detail.value;
+
+    addressInfo[type] = value;
+    this.setData({
+      addressInfo
+    })
+  },
+
+  // 保存
+  async onSave(){
+    const { isEdit, addressInfo, id } = this.data;
+    if(isEdit){
+      let res = await DatabaseService.update('address',id, addressInfo);
+      console.log(res)
+    }
+  },
+
+  // 删除地址
+  async deleteAddress(e){
+
   },
 
   /**

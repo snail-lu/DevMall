@@ -2,7 +2,9 @@
 <import src="/pages/template/template.wxml"></import>
 
 <view class="address-list-container">
-    <block wx:for="{{10}}">
-        <template is="addressItem"></template>
+    <block wx:for="{{addressList}}" wx:key="_id">
+        <template is="addressItem" data="{{...item}}"></template>
     </block>
+
+    <view class="add-address-btn">新增收货地址</view>
 </view>

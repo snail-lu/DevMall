@@ -655,4 +655,18 @@
 .address-list-container {
   padding: 20rpx 30rpx;
 }
+
+.add-address-btn {
+  width: 280rpx;
+  position: fixed;
+  bottom: 20rpx;
+  left: 50%;
+  margin-left: -140rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #f80707;
+  border-radius: 40rpx;
+  color: #fff;
+  text-align: center;
+}
 /*# sourceMappingURL=addressList.wxss.map */

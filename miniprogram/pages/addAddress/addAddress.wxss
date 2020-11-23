@@ -1,0 +1,63 @@
+.edit-address-container {
+  padding-top: 30rpx;
+}
+
+.edit-address-container .address-item {
+  background-color: #fff;
+  padding: 20rpx 36rpx;
+  margin-bottom: 2rpx;
+}
+
+.edit-address-container .address-item label {
+  font-size: 32rpx;
+  color: #070707;
+}
+
+.edit-address-container .address-item input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #070707;
+  font-size: 26rpx;
+  text-align: right;
+}
+
+.edit-address-container .address-item picker {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #070707;
+  font-size: 26rpx;
+  text-align: right;
+}
+
+.edit-address-container .address-item picker .region-placeholder {
+  color: gray;
+  font-size: 26rpx;
+}
+
+.edit-address-container .address-item .username-placeholder {
+  color: gray;
+  font-size: 26rpx;
+}
+
+.edit-address-container .save-btn {
+  margin: 80rpx 88rpx 0;
+  background-color: #f80707;
+  color: #fff;
+  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+}
+
+.edit-address-container .default-btn {
+  background-color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  margin: 40rpx 88rpx;
+}
+/*# sourceMappingURL=addAddress.wxss.map */

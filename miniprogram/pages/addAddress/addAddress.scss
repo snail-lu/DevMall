@@ -1,0 +1,55 @@
+.edit-address-container{
+    padding-top: 30rpx;
+
+    .address-item{
+        background-color: #fff;
+        padding: 20rpx 36rpx;
+        margin-bottom: 2rpx;
+        label{
+            font-size: 32rpx;
+            color: rgb(7,7,7);
+        }
+
+        input{
+            flex: 1;
+            color: #070707;
+            font-size: 26rpx;
+            text-align: right;
+        }
+        picker{
+            flex: 1;
+            color: #070707;
+            font-size: 26rpx;
+            text-align: right;
+
+            .region-placeholder{
+                color: rgb(128,128,128);
+                font-size: 26rpx;
+            }
+        }
+        .username-placeholder{
+            color: rgb(128,128,128);
+            font-size: 26rpx;
+        }
+
+    }
+    .save-btn{
+        margin: 80rpx 88rpx 0;
+        background-color: #f80707;
+        color: #fff;
+        font-size: 32rpx;
+        height: 80rpx;
+        line-height: 80rpx;
+        border-radius: 40rpx;
+        text-align: center;
+    }
+
+    .default-btn {
+        background-color: #fff;
+        height: 80rpx;
+        line-height: 80rpx;
+        border-radius: 40rpx;
+        text-align: center;
+        margin: 40rpx 88rpx;
+    }
+}

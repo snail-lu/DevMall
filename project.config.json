@@ -51,8 +51,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/category/category",
-          "pathName": "pages/category/category",
+          "name": "地址簿",
+          "pathName": "pages/addressList/addressList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "新增地址",
+          "pathName": "pages/addAddress/addAddress",
           "query": "",
           "scene": null
         }

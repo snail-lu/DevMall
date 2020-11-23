@@ -25,14 +25,14 @@
 <template name="addressItem">
     <view class="address-item">
         <view class="user-info">
-            <text class="name">列夫托尔斯明hahahah</text>
-            <text class="phone">13112341234</text>
-            <text class="label default-label">默认</text>
-            <text class="label common-label">家</text>
+            <text class="name">{{userName}}</text>
+            <text class="phone">{{mobile}}</text>
+            <text class="label default-label" wx:if="{{isDefault}}">默认</text>
+            <text class="label common-label">{{label}}</text>
         </view>
         <view class="address-info">
-            <view class="address">上海市浦东新区张江镇张江路张江科创园1期1栋1111室</view>
-            <image class="edit-btn" src="/images/icons/icon-edit.png" />
+            <view class="address">{{address}}</view>
+            <image class="edit-btn" src="/images/icons/icon-edit.png" data-id="{{_id}}" bindtap="addAddress" />
         </view>
     </view>
 </template>
