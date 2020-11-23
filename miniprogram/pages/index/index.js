@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navigationBarHeight: 40,
-    statusBarHeight: 20,
-    hotWords: [],
-    menuList: [],
-    tabList: [],
-    currentTabId: 101,
-    activityCutTime: "00:00:00"
+    navigationBarHeight: 40,  // 导航栏高度
+    statusBarHeight: 20,      // 状态栏高度
+    hotWords: [],             // 热搜词列表
+    menuList: [],             // 菜单列表
+    tabList: [],              // 商品tab列表
+    currentTabId: 101,        // 当前选中的tab项的id
+    activityCutTime: "00:00:00",// 秒杀活动倒计时
+    goodsList: [],            // 当前tab项下的商品列表
   },
 
   /**
@@ -26,7 +27,12 @@ Page({
     const { menuList, bannerList, tabList, activity } = panelData[0];
     const hotWords = words[0].value;
     
+    // 开启秒杀活动倒计时
     this.startActivityTimer(activity);
+
+    // 获取当前tab下的商品列表
+    this.getGoodsList(tabList[0].id)
+
     this.setData({
       navigationBarHeight,
       statusBarHeight,
@@ -39,8 +45,10 @@ Page({
     })
   },
 
-  switchTab(e){
+  // 切换tab
+  async switchTab(e){
     const { id } = e.currentTarget.dataset;
+    await this.getGoodsList(id);
     this.setData({
       currentTabId: id
     })
@@ -54,8 +62,9 @@ Page({
   },
 
   // 跳转商品详情页
-  toGoodsDetail(){
-    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail' });
+  toGoodsDetail(e){
+    let { sn } = e.currentTarget.dataset;
+    wx.navigateTo({ url: '/pages/goodsDetail/goodsDetail?sn='+sn });
   },
 
   // 活动计时器
@@ -75,6 +84,14 @@ Page({
         leftoverTime--;
       }, 1000)
     }
+  },
+
+  // 获取商品列表
+  async getGoodsList(id){
+    let res = await DatabaseService.query('goods', { activityId: id });
+    this.setData({
+      goodsList: res
+    })
   },
   
 
