@@ -8,7 +8,8 @@ Page({
    */
   data: {
     isEdit: false,  // 当前为编辑/新增
-    addressInfo: {}
+    addressInfo: {},
+    region: [],   // 省市区信息
   },
 
   /**
@@ -27,11 +28,10 @@ Page({
       })
     }
 
-    wx.setNavigationBarTitle({
-      title
-    })
+    wx.setNavigationBarTitle({ title })
   },
 
+  // 文本框输入
   bindInput(e){
     const { addressInfo } = this.data;
     const { type } = e.currentTarget.dataset;
@@ -40,6 +40,16 @@ Page({
     addressInfo[type] = value;
     this.setData({
       addressInfo
+    })
+  },
+
+  // 省市区选择器
+  bindRegionChange(e){
+    let { addressInfo } = this.data;
+    let region = e.detail.value;
+    this.setData({
+      "addressInfo.region": region,
+      region,
     })
   },
 

@@ -15,14 +15,13 @@
     <!-- 所在地区 -->
     <view class="address-item flex-box flex-h-between flex-v-center">
         <label>所在地区</label>
-        <picker mode="multiSelector" range="{{region}}" value="{{multiIndex}}" bindchange="bindRegionChange" bindcolumnchange="bindMultiPickerColumnChange">
-            <view wx:if="{{addressInfo.province}}">
-                {{addressInfo.provinceName}},{{addressInfo.cityName}},{{addressInfo.districtName}}
+        <picker mode="region" value="{{region}}" bindchange="bindRegionChange">
+            <view wx:if="{{region[0]}}">
+                {{region[0]}},{{region[1]}},{{region[2]}}
             </view>
             <view wx:else class='region-placeholder' >
                 地区信息
             </view>
-            
         </picker>
     </view>
 

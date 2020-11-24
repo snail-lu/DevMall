@@ -11,6 +11,7 @@
 .edit-address-container .address-item label {
   font-size: 32rpx;
   color: #070707;
+  margin-right: 20rpx;
 }
 
 .edit-address-container .address-item input {

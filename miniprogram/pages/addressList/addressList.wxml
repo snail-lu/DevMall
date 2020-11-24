@@ -6,5 +6,5 @@
         <template is="addressItem" data="{{...item}}"></template>
     </block>
 
-    <view class="add-address-btn">新增收货地址</view>
+    <view class="add-address-btn" bindtap="addAddress">新增收货地址</view>
 </view>
