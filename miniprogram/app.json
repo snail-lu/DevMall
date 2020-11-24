@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/category/category",
     "pages/live/live",
+    "pages/shopList/shopList",
     "pages/cart/cart",
     "pages/my/my",
     "pages/search/search",
@@ -53,10 +54,10 @@
       "iconPath": "/images/icons/icon-cate.png",
       "selectedIconPath": "/images/icons/icon-cate-selected.png"
     }, {
-      "pagePath": "pages/live/live",
-      "text": "直播",
-      "iconPath": "/images/icons/icon-camera.png",
-      "selectedIconPath": "/images/icons/icon-camera-selected.png"
+      "pagePath": "pages/shopList/shopList",
+      "text": "门店",
+      "iconPath": "/images/icons/icon-shop.png",
+      "selectedIconPath": "/images/icons/icon-shop-selected.png"
     }, {
       "pagePath": "pages/cart/cart",
       "text": "购物车",
@@ -73,5 +74,10 @@
   "style": "v2",
   "useExtendedLib": {
     "weui": true
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位最近的门店"
+    }
   }
 }

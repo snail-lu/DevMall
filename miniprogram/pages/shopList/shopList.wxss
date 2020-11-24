@@ -1,0 +1,198 @@
+.shop-list-container {
+  width: 100%;
+}
+
+.shop-list-container .fixed-top {
+  width: 100%;
+  height: 226rpx;
+}
+
+.shop-list-container .header {
+  width: 100%;
+  height: 102rpx;
+  color: #ffffff;
+  font-size: 24rpx;
+  text-align: center;
+  background: #000;
+}
+
+.shop-list-container .header .location-icon {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: top;
+}
+
+.shop-list-container .header .update-address {
+  text-decoration: underline;
+}
+
+.shop-list-container .header .locate-btn {
+  display: inline-block;
+  font-size: 24rpx;
+  border: none;
+  padding: 0;
+  margin: 0;
+  height: 40rpx;
+  min-height: 0;
+  line-height: 40rpx;
+  color: #FFF;
+}
+
+.shop-list-container .header .locate-btn::after {
+  border: none;
+}
+
+.shop-list-container .region-box {
+  font-size: 24rpx;
+  padding: 21rpx 36rpx;
+}
+
+.shop-list-container .region-box .icon {
+  width: 29rpx;
+  height: 29rpx;
+}
+
+.shop-list-container .store-search {
+  position: relative;
+  margin: 21rpx 36rpx;
+}
+
+.shop-list-container .store-search .store-search-input {
+  width: 100%;
+  height: 82rpx;
+  line-height: 82rpx;
+  padding: 0 80rpx 0 37rpx;
+  font-size: 28rpx;
+  color: #808080;
+  border: 1px solid #808080;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.shop-list-container .store-search .search-icon {
+  position: absolute;
+  top: 15rpx;
+  right: 26rpx;
+  width: 28rpx;
+  height: 28rpx;
+  padding: 15rpx;
+  color: #808080;
+}
+
+.shop-list-container .store-list {
+  border-top: 1px solid #f2f2f2;
+}
+
+.shop-list-container .store-list .store-item {
+  font-size: 28rpx;
+  color: #1b1b1b;
+  padding: 30rpx 36rpx;
+  margin-bottom: 30rpx;
+  border-top: 1px solid #f2f2f2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(7, 17, 27, 0.2);
+          box-shadow: 0 2px 4px 0 rgba(7, 17, 27, 0.2);
+}
+
+.shop-list-container .store-list .store-item:first-child {
+  border-top: none;
+}
+
+.shop-list-container .store-list .store-item .store-item-info > view {
+  line-height: 48rpx;
+}
+
+.shop-list-container .store-list .store-item .store-item-info .store-name {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.shop-list-container .store-list .store-item .store-item-btn {
+  width: 200rpx;
+  text-align: right;
+}
+
+.shop-list-container .store-list .store-item .store-item-btn .store-detail-btn {
+  width: 170rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #808080;
+  margin: 0;
+  text-align: center;
+  border: 1px solid #808080;
+}
+
+.shop-list-container .store-list .store-item .store-item-btn .current-shop-btn {
+  width: 170rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color: #FD7304;
+  margin: 0;
+  text-align: center;
+  border: 1px solid #FD7304;
+}
+
+.shop-list-container .store-list .store-item .store-item-btn .navigator-hover {
+  background: transparent;
+  opacity: 1;
+}
+
+.shop-list-container .store-list .no-datas-prompt {
+  color: #333;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 250rpx;
+}
+
+#locate-fail {
+  text-align: center;
+}
+
+#locate-fail image {
+  display: block;
+  width: 296rpx;
+  height: 296rpx;
+  margin: 0 auto;
+}
+
+#locate-fail .locate-fail-text {
+  font-size: 36rpx;
+  color: #CC0000;
+  margin: 18rpx 0;
+}
+
+#locate-fail .locate-prompt {
+  color: #999999;
+  font-size: 30rpx;
+}
+
+#locate-fail .locate-prompt text {
+  display: block;
+}
+
+#locate-fail .locate-btn-box {
+  margin-top: 80rpx;
+}
+
+#locate-fail .locate-btn-box .locate-btn {
+  display: inline-block;
+  width: 264rpx;
+  font-size: 28rpx;
+  height: 72rpx;
+  color: #F39800;
+  border: 1px solid #F39800;
+  line-height: 72rpx;
+  background-color: #ffffff;
+}
+
+#locate-fail .locate-btn-box .locate-btn::after {
+  border: none;
+}
+
+#locate-fail .locate-btn-box .open-setting-btn {
+  margin-right: 40rpx;
+}
+/*# sourceMappingURL=shopList.wxss.map */

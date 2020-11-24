@@ -67,6 +67,12 @@
           "pathName": "pages/addressList/addressList",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "门店列表",
+          "pathName": "pages/shopList/shopList",
+          "query": "",
+          "scene": null
         }
       ]
     }
