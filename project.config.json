@@ -51,14 +51,20 @@
     "miniprogram": {
       "list": [
         {
-          "name": "地址簿",
-          "pathName": "pages/addressList/addressList",
+          "name": "数据库指引",
+          "pathName": "pages/databaseGuide/databaseGuide",
           "query": "",
           "scene": null
         },
         {
           "name": "新增地址",
           "pathName": "pages/addAddress/addAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "地址簿",
+          "pathName": "pages/addressList/addressList",
           "query": "",
           "scene": null
         }

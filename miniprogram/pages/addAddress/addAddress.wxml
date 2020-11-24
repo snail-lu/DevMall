@@ -40,7 +40,7 @@
     <!-- 设为默认 -->
     <view class="address-item flex-box flex-h-between flex-v-center">
         <label>设为默认地址</label>
-        <switch checked="{{address.isDefault}}" color="#f80707"></switch>
+        <switch checked="{{addressInfo.isDefault}}" color="#f80707" data-type="isDefault" bindchange="bindInput"></switch>
     </view>
     
     <!-- 保存按钮 -->

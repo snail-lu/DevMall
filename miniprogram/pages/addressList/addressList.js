@@ -14,11 +14,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-    let res = await DatabaseService.query('address');
-    this.setData({
-      addressList: res || []
-    })
+  onLoad: function (options) {
   },
 
   // 地址新增/编辑
@@ -40,8 +36,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: async function () {
+    let res = await DatabaseService.query('address');
+    this.setData({
+      addressList: res || []
+    })
   },
 
   /**
