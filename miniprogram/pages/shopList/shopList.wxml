@@ -31,7 +31,7 @@
                     <view class="shop-address">{{item.address}}</view>
                     <view class="shop-business-hour">{{item.businessHour}}</view>
                 </view>
-                <view class="shop-btn flex-box flex-h-between flex-v-center">
+                <view class="shop-btn flex-box flex-h-between flex-v-center flex-shrink-0">
                     <image src="/images/icons/icon-navigation.png" class="navigator-btn" data-shop="{{item}}" bindtap="shopNavigate"/>
                     <image src="/images/icons/icon-phone.png" class="navigator-btn" data-phone="{{item.mobile}}" bindtap="makePhoneCall" />
                 </view>
