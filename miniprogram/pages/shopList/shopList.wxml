@@ -1,8 +1,8 @@
 <!--pages/shopList/shopList.wxml-->
 <view class="shop-list-container">
     
-    <!-- ===========固定区域========== -->
-    <view class="fixed-top">
+    <!-- 固定区域 -->
+    <view class="fixed-area">
         <!-- 当前位置 -->
         <view class="header flex-box-column flex-h-center flex-v-center" bindtap="{{locationInfo?'updateCurrentShop':''}}">
             <view class="local-position">
@@ -12,64 +12,29 @@
                     定位失败，去开启定位授权
                 </button>
             </view>
-            <!-- <view class="update-address" bindtap="bindEditAddress">修改收货地址</view> -->
         </view>
 
-        <!-- 切换省市区 -->
-        <!-- <view class="region-box">
-            <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
-                <view class="picker flex-box flex-box-h-between flex-box-v-center">
-                  <text>{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
-                  <image src="/images/icons/pull-down.png" class="icon" />
-                </view>
-            </picker>
-        </view> -->
-
         <!-- 门店搜索 -->
-        <view class="store-search" wx:if="{{shopList.length>0}}">
-                <input type="text" placeholder="{{placeholder}}" class="store-search-input" confirm-type="search" bindconfirm="bindSearchStore" bindinput="bindStoreInput" value="{{shopName}}" />
-                <image src="../../images/store/search.svg" class="search-icon" bindtap="bindSearchStore"></image>
+        <view class="search-box" wx:if="{{shopList.length>0}}">
+            <input type="text" placeholder="{{placeholder}}" class="store-search-input" confirm-type="search" bindconfirm="bindSearchStore" bindinput="bindStoreInput" value="{{shopName}}" />
+            <image src="../../images/icons/icon-search.png" class="search-icon" bindtap="bindSearchStore"></image>
         </view> 
     </view>
-    
 
-    <!-- =========门店列表  滚动区域=========-->
+    <!-- 门店列表 -->
     <view class="shop-list" wx:if="{{shopList.length>0}}">
-    <scroll-view scroll-y="true"  style="height:{{scrollAreaHeight}}px" bindscrolltolower="getMoreStoreList" lower-threshold="100">
         <block wx:if="{{shopList.length>0}}">
-            <view class="store-item flex-box flex-box-h-between" wx:for="{{shopList}}" wx:key="storeIndex">
-                <view class="store-item-info felx-item-1 flex-box-column flex-box-h-between">
-                    <view class="store-name">{{item.shopName}}</view>
-                    <view>{{item.addressDesc}}</view>
-                    <view>周一至周日 10:00-22:00</view>
-                    <view wx:if="{{item.distance>0}}">距您{{item.distance}}km</view>
+            <view class="shop-item flex-box flex-h-between" wx:for="{{shopList}}" wx:key="shopId">
+                <view class="shop-info felx-item-1 flex-box-column flex-h-between">
+                    <view class="shop-name">{{item.shopName}}</view>
+                    <view class="shop-distance" wx:if="{{item.distance}}">距您{{item.distance}}km</view>
+                    <view class="shop-address">{{item.address}}</view>
+                    <view class="shop-business-hour">{{item.businessHour}}</view>
                 </view>
-                <view class="store-item-btn flex-box-column flex-box-v-end">
-                    <!-- <navigator class="store-detail-btn"  url="../storeDetail/storeDetail?id={{item.id}}&name={{item.name}}">店铺详情</navigator> -->
-                    <!-- <view class="store-detail-btn"  data-store="{{item}}" bindtap="toStoreDetail">店铺详情</view> -->
-                    <view class="store-detail-btn" style="margin-top: 20rpx;" wx:if="{{!item.isCurrentShop}}" data-store="{{item}}" bindtap="chooseCurrentShop">去导航</view>
-                    <!-- <view class="current-shop-btn" style="margin-top: 20rpx;" wx:else data-store="{{item}}" >当前门店</view> -->
+                <view class="shop-btn flex-box-column flex-h-center flex-v-end">
+                    <view class="navigator-btn" wx:if="{{!item.isCurrentShop}}" data-store="{{item}}" bindtap="chooseCurrentShop">去这里</view>
                 </view>
             </view>
         </block>
-    </scroll-view>
     </view>
-
-    <!-- =========== 定位失败 ========== -->
-    <!-- <view class="flex-box flex-box-h-center flex-box-v-center" wx:else>
-        <view id='locate-fail' wx:if="{{!locaitonInfo}}">
-            <image src="../../images/store/locateFail.png"></image>
-            <view class="locate-fail-text">获取地理位置失败</view>
-            <view class="locate-prompt">
-                <text>请先开启小程序定位授权</text>
-                <text>确认手机定位服务也打开后可重新定位</text>
-            </view>
-            <view class="locate-btn-box">
-                <button open-type="openSetting" bindopensetting="userSettingCallback" class="open-setting-btn locate-btn" plain="true">
-                    开启授权
-                </button>
-                <button  class="locate-btn" bindtap="bindRelocate">重新定位</button>
-            </view>
-        </view>
-    </view> -->
 </view>

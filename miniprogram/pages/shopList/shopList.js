@@ -1,26 +1,21 @@
 // pages/shopList/shopList.js
+import DatabaseService from '../../services/db';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shopList: [ //店铺列表
-      {
-        shopName: "店铺1",
-        addressDesc: "江苏省苏州市姑苏区观前东路100号",
-        distance: "1.2km",
-        latitude: "31.318262",
-        longitude: "120.632738"
-      }
-    ], 
+    shopList: [], //店铺列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getLocation()
+    this.getLocation();
+    this.getShopList();
   },
 
   /**
@@ -34,15 +29,22 @@ Page({
         // console.log(result)
         const latitude = res.latitude
         const longitude = res.longitude
-        wx.openLocation({
-          latitude,
-          longitude,
-          scale: 18
-        })
+        // wx.openLocation({
+        //   latitude,
+        //   longitude,
+        //   scale: 18
+        // })
       },
       fail: ()=>{},
       complete: ()=>{}
     });
+  },
+
+  async getShopList(){
+    let res = await DatabaseService.query('shops');
+    this.setData({
+      shopList: res
+    })
   },
 
   /**

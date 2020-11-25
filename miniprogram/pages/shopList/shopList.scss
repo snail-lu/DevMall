@@ -1,9 +1,16 @@
 .shop-list-container{
     width: 100%;
+    padding-bottom: env(safe-area-inset-bottom);
 
-    .fixed-top{
+    .fixed-area{
         width: 100%;
-        height: 226rpx;
+        // height: 226rpx;
+        padding-bottom: 10rpx;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: #f6f6f6;
     }
 
     .header{
@@ -32,100 +39,78 @@
             line-height: 40rpx;
             color: #FFF;
             &::after{
-                  border: none
+                border: none
             }
       }
     }
 
-    .region-box{
-        font-size: 24rpx;
-        padding: 21rpx 36rpx;
-        .icon{
-            width: 29rpx;
-            height: 29rpx;
-        }
-    }
-
-
-
-    // --------门店搜索---------
-    $searchInputH:82rpx;
-    $searchIconSize:28rpx;
-    .store-search{
+    .search-box{
         position: relative;
-        margin:21rpx 36rpx; 
+        margin: 10rpx 36rpx; 
+
         .store-search-input{
             width: 100%;
-            height: $searchInputH;
-            line-height: $searchInputH;
-            padding: 0 80rpx 0 37rpx;
+            height: 60rpx;
+            line-height: 60rpx;
+            padding: 0 120rpx 0 30rpx;
             font-size: 28rpx;
             color: #808080;
-            border:1px solid #808080;
+            border: 1px solid #808080;
             box-sizing: border-box;
+            border-radius: 30rpx;
         }
         .search-icon{
             position: absolute;
-            top:15rpx;
-            right:26rpx;
-            width: $searchIconSize;
-            height: $searchIconSize;
-            padding: 15rpx;
-            color: #808080;
+            top: 0;
+            right: 0;
+            width: 40rpx;
+            height: 40rpx;
+            padding: 10rpx 30rpx;
         }
     }
 
-    // --------门店列表——-------
-    .store-list{
-        border-top:1px solid #f2f2f2;
-        .store-item{
+    .shop-list{
+        padding: 10rpx 32rpx 0;
+
+        .shop-item{
             font-size: 28rpx;
             color:#1b1b1b;
             padding: 30rpx 36rpx;
             margin-bottom: 30rpx;
-            border-top:1px solid #f2f2f2;
             box-sizing: border-box;
             box-shadow: 0 2px 4px 0 rgba(7, 17, 27, 0.2);
-            &:first-child{
-                border-top: none;
+            border-radius: 10rpx;
+
+            .shop-name {
+                font-size: 30rpx;
+                font-weight: bold;
             }
-            .store-item-info{
-                >view{
-                    line-height: 48rpx;
-                }
-                .store-name{
-                    font-size: 30rpx;
-                    font-weight: bold;
-                }
+
+            .shop-address {
+                font-size: 22rpx;
             }
-            .store-item-btn{
+
+            .shop-distance {
+                font-size: 22rpx;
+                font-weight: bold;
+            }
+
+            .shop-business-hour {
+                font-size: 22rpx;
+            }
+
+            .shop-btn{
                 width: 200rpx;
-                text-align: right;
-                .store-detail-btn{
+                .navigator-btn{
                     width: 170rpx;
                     height: 50rpx;
                     line-height: 50rpx;
                     font-size: 26rpx;
-                    color: #808080;
-                    margin: 0;
+                    color: #fff;
                     text-align: center;
-                    border:1px solid #808080;
-                }
-                .current-shop-btn{
-                    width: 170rpx;
-                    height: 50rpx;
-                    line-height: 50rpx;
-                    font-size: 26rpx;
-                    color: #FD7304;
-                    margin: 0;
-                    text-align: center;
-                    border:1px solid #FD7304;
-                }
-                .navigator-hover{
-                    background: transparent;
-                    opacity:1 ;
-                }
-            
+                    background: #f80707;
+                    border-radius: 25rpx;
+                }            
             }
         }
         .no-datas-prompt{
@@ -136,46 +121,4 @@
         }
     }
 
-}
-
-// 定位失败
-#locate-fail{
-    text-align: center;
-    image{
-          display: block;
-          width: 296rpx;
-          height: 296rpx;
-          margin: 0 auto;
-    }
-    .locate-fail-text{
-          font-size: 36rpx;
-          color:#CC0000; 
-          margin: 18rpx 0;
-    }
-    .locate-prompt{
-          color:#999999;
-          font-size: 30rpx;
-          text{
-                display: block;
-          }
-    }
-    .locate-btn-box{
-          margin-top: 80rpx;
-          .locate-btn{
-                display: inline-block;
-                width: 264rpx;
-                font-size: 28rpx;
-                height:72rpx ;
-                color: #F39800;
-                border:1px solid #F39800;
-                line-height: 72rpx;
-                background-color: #ffffff;
-                &::after{
-                      border: none
-                }
-          }
-          .open-setting-btn{
-                margin-right: 40rpx;
-          }
-    }
 }

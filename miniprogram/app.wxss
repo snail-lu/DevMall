@@ -184,6 +184,10 @@ page {
   align-items: center;
 }
 
+.flex-v-end {
+  align-items: flex-end;
+}
+
 .flex-item-1 {
   flex: 1;
 }
