@@ -26,15 +26,33 @@ Page({
   },
 
 
+  // 导航
   shopNavigate(e){
     const { latitude,longitude } = e.currentTarget.dataset.shop;
     if(latitude&&longitude){
       wx.openLocation({
         latitude,
         longitude,
-        scale: 18
+        scale: 14
       });
     }
+  },
+
+  // 致电
+  makePhoneCall(e){
+    const { phone } = e.currentTarget.dataset;
+    wx.showModal({
+      title: '拨打咨询电话',
+      content: phone,
+      success: (result) => {
+        if(result.confirm){
+          wx.makePhoneCall({
+            phoneNumber: phone
+          });
+        }
+      }
+    });
+    
   },
 
 
