@@ -5,13 +5,15 @@
 
 .shop-list-container .fixed-area {
   width: 100%;
-  padding-bottom: 10rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 18rpx 36rpx;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 999;
-  background-color: #f6f6f6;
+  background-color: #fff;
 }
 
 .shop-list-container .header {
@@ -51,7 +53,6 @@
 
 .shop-list-container .search-box {
   position: relative;
-  margin: 10rpx 36rpx;
 }
 
 .shop-list-container .search-box .store-search-input {
@@ -90,6 +91,7 @@
   -webkit-box-shadow: 0 2px 4px 0 rgba(7, 17, 27, 0.2);
           box-shadow: 0 2px 4px 0 rgba(7, 17, 27, 0.2);
   border-radius: 10rpx;
+  background-color: #fff;
 }
 
 .shop-list-container .shop-list .shop-item .shop-name {

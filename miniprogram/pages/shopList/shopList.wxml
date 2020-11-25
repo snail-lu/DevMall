@@ -4,7 +4,7 @@
     <!-- 固定区域 -->
     <view class="fixed-area">
         <!-- 当前位置 -->
-        <view class="header flex-box-column flex-h-center flex-v-center" bindtap="{{locationInfo?'updateCurrentShop':''}}">
+        <!-- <view class="header flex-box-column flex-h-center flex-v-center" bindtap="{{locationInfo?'updateCurrentShop':''}}">
             <view class="local-position">
                 <image src="../../images/icons/icon-refresh.png" class="location-icon"></image>
                 <text wx:if="{{locationInfo}}">{{address.address}}</text>
@@ -12,7 +12,7 @@
                     定位失败，去开启定位授权
                 </button>
             </view>
-        </view>
+        </view> -->
 
         <!-- 门店搜索 -->
         <view class="search-box" wx:if="{{shopList.length>0}}">
@@ -32,7 +32,7 @@
                     <view class="shop-business-hour">{{item.businessHour}}</view>
                 </view>
                 <view class="shop-btn flex-box-column flex-h-center flex-v-end">
-                    <view class="navigator-btn" wx:if="{{!item.isCurrentShop}}" data-store="{{item}}" bindtap="chooseCurrentShop">去这里</view>
+                    <view class="navigator-btn" data-shop="{{item}}" bindtap="shopNavigate">去这里</view>
                 </view>
             </view>
         </block>

@@ -14,38 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getLocation();
     this.getShopList();
   },
 
-  /**
-   * 定位
-   */
-  getLocation(){
-    wx.getLocation({
-      type: 'wgs84',
-      altitude: false,
-      success: (res)=>{
-        // console.log(result)
-        const latitude = res.latitude
-        const longitude = res.longitude
-        // wx.openLocation({
-        //   latitude,
-        //   longitude,
-        //   scale: 18
-        // })
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
-  },
-
+  // 获取门店列表
   async getShopList(){
     let res = await DatabaseService.query('shops');
     this.setData({
       shopList: res
     })
   },
+
+
+  shopNavigate(e){
+    const { latitude,longitude } = e.currentTarget.dataset.shop;
+    if(latitude&&longitude){
+      wx.openLocation({
+        latitude,
+        longitude,
+        scale: 18
+      });
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
