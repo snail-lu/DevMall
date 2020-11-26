@@ -59,10 +59,10 @@
         <view class="header flex-box fle-v-center flex-h-between">
             <view class="title">
                 <text>评价</text>
-                600+条
+                {{goodsInfo.comments}}条
             </view>
             <view class="positive-rating flex-box flex-v-center">
-                <text>好评度98%</text>
+                <text>好评度{{goodsInfo.positiveRating}}</text>
                 <image src="/images/icons/icon-right.png" />
             </view>
         </view>

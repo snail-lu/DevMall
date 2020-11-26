@@ -40,7 +40,7 @@
                 <view class="more-goods-btn">
                     查看更多
                 </view>
-            </view>
+            </view> 
         </view>
     </view>
 
@@ -58,8 +58,8 @@
                 <view class="goods-name double-line-overflow">{{item.name}}</view>
                 <view class="goods-price">¥{{item.salePrice}}</view>
                 <view class="goods-comment flex-box flex-h-between">
-                    <view>4328条评论</view>
-                    <view>94%好评率</view>
+                    <view>{{item.comments}}条评论</view>
+                    <view>{{item.positiveRating}}好评率</view>
                 </view>
             </view>
         </view>
