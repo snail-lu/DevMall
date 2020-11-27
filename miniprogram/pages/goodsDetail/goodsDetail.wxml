@@ -90,6 +90,7 @@
         </view>
     </view>
 
+    <!-- 商品详情 -->
     <view class="goods-detail-box">
         <view class="tab-box flex-box">
             <view 
@@ -131,11 +132,8 @@
 
         </view>
     </view>
-
-    <view class="top-btn flex-box flex-v-center flex-h-center">
-        <image src="/images/icons/icon-toTop.png" />
-    </view>
-
+    
+    <!-- 底部操作按钮 -->
     <view class="footer flex-box flex-h-between flex-v-center">
         <view class="flex-box flex-item-1 flex-h-around">
             <view class="icon-btn flex-box-column flex-v-center flex-h-between">
@@ -151,5 +149,32 @@
             <view class="btn-item">加入购物车</view>
             <view class="btn-item">立即购买</view>
         </view>
+    </view>
+
+    <!-- 商品属性选择弹窗 -->
+    <view class="goods-attr-box">
+        <view class="header flex-box">
+            <view class="image-box">
+                <image src="" />
+            </view>
+            <view class="flex-item-1">
+                <view>¥599</view>
+                <view>已选：</view>
+            </view>
+        </view>
+        <view class="content">
+            <view wx:for="{{goodsAttr}}" wx:key="attrKey">
+                <view>{{item.attr}}</view>
+                <view>
+                    <text wx:for="{{item.list}}" wx:key="*this" wx:for-item="attrItem">{{attrItem.value}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="confirm-btn">确认</view>
+    </view>
+
+    <!-- 回到顶部 -->
+    <view class="top-btn flex-box flex-v-center flex-h-center">
+        <image src="/images/icons/icon-toTop.png" />
     </view>
 </view>

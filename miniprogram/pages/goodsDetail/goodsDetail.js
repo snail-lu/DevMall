@@ -7,10 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTabIndex: 0,
-    goodsGallery: [],
-    goodsDescList: [],
-    goodsSpecList: [
+    currentTabIndex: 0, // 当前商品详情tab index
+    goodsGallery: [],   // 顶部轮播数据
+    goodsDescList: [],  // 商品介绍数据
+    goodsSpecList: [    // 规格参数数据
       {
         id: 0,
         label: '包装清单',
@@ -106,7 +106,9 @@ Page({
         ]
       }
     ],
-    goodsInfo: {}
+    goodsInfo: {},  // 商品数据
+    goodsAttr: [],  // 商品属性
+    skuInfo: [],    // sku数据
   },
 
   /**
@@ -121,12 +123,13 @@ Page({
   async getGoodsDetail(sn){
       let res = await DatabaseService.query('goods', { sn });
       if(res[0]){
-        const { goodsGallery, goodsDescList, colorArray } = res[0];
+        const { goodsGallery, goodsDescList, goodsAttr, skuInfo } = res[0];
         this.setData({
           goodsGallery,
           goodsDescList,
-          colorArray,
-          goodsInfo: res[0]
+          goodsAttr,
+          goodsInfo: res[0],
+          skuInfo
         })
       }
   },
