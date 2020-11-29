@@ -3,7 +3,7 @@
     <!-- 顶部信息 -->
     <view class="banner-box">
         <!-- 轮播图 -->
-        <swiper class="swiper-box" autoplay="{{true}}" circular="{{true}}">
+        <swiper class="swiper-box" autoplay="{{false}}" circular="{{true}}">
             <swiper-item class="swiper-item" item-id="" wx:for="{{goodsGallery}}" wx:key="*this">
                 <image class="gallery-img" src="{{item}}" data-url="{{item}}" bindtap="previewImage" />
             </swiper-item>
@@ -37,7 +37,7 @@
     </view>
 
     <!-- 商品属性、地址信息选择栏 -->
-    <view class="goods-select-box">
+    <view class="goods-select-box" bindtap="showGoodsAttrBox">
         <view class="select-item flex-box">
             <view class="label">已选</view>
             <view class="flex-item-1">42/43英寸，Windows i3，1个，可选服务</view>
@@ -146,31 +146,46 @@
             </view>
         </view>
         <view class="flex-box">
-            <view class="btn-item">加入购物车</view>
-            <view class="btn-item">立即购买</view>
+            <view class="btn-item" bindtap="showGoodsAttrBox">加入购物车</view>
+            <view class="btn-item" data-is-buy="{{true}}" bindtap="showGoodsAttrBox">立即购买</view>
         </view>
     </view>
 
     <!-- 商品属性选择弹窗 -->
-    <view class="goods-attr-box">
+    <view class="goods-attr-box" catchtouchmove="stopMove" wx:if="{{showAttrBox}}">
         <view class="header flex-box">
             <view class="image-box">
-                <image src="" />
+                <image src="{{selectedSku.imageUrl}}" />
             </view>
-            <view class="flex-item-1">
-                <view>¥599</view>
-                <view>已选：</view>
+            <view class="flex-item-1 flex-box-column flex-h-end">
+                <view class="goods-price">¥599</view>
+                <view class="goods-selected-attr">已选：{{selectedAttrText}}</view>
             </view>
         </view>
         <view class="content">
             <view wx:for="{{goodsAttr}}" wx:key="attrKey">
-                <view>{{item.attr}}</view>
+                <view class="title">{{item.attr}}</view>
                 <view>
-                    <text wx:for="{{item.list}}" wx:key="*this" wx:for-item="attrItem">{{attrItem.value}}</text>
+                    <text 
+                        class="attr-item {{selectedAttr[item.attrKey]==attrItem.code?'attr-item-active':''}}" 
+                        wx:for="{{item.list}}" 
+                        wx:key="*this" 
+                        wx:for-item="attrItem"
+                        data-attr-key="{{item.attrKey}}"
+                        data-attr-code="{{attrItem.code}}"
+                        bindtap="bindSelectGoodsAttr">{{attrItem.value}}</text>
+                </view>
+            </view>
+            <view class="goods-num flex-box flex-h-between">
+                <view class="title">数量</view>
+                <view class="goods-num-box">
+                    <image class="btn btn-left" src="/images/icons/jian.png" />
+                    <view class="goods-num">1</view>
+                    <image class="btn btn-right" src="/images/icons/jia.png" />
                 </view>
             </view>
         </view>
-        <view class="confirm-btn">确认</view>
+        <view class="confirm-btn" bindtap="addCartConfirm">确认</view>
     </view>
 
     <!-- 回到顶部 -->
@@ -178,3 +193,5 @@
         <image src="/images/icons/icon-toTop.png" />
     </view>
 </view>
+
+<view class="mask" catchtouchmove="stopMove" wx:if="{{showAttrBox}}" bindtap="showGoodsAttrBox"></view>

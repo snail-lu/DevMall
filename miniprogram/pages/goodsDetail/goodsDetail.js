@@ -109,6 +109,11 @@ Page({
     goodsInfo: {},  // 商品数据
     goodsAttr: [],  // 商品属性
     skuInfo: [],    // sku数据
+    showAttrBox: true, // 商品属性弹窗显示控制
+    isBuy: false, //立即购买标志
+    selectedAttr: {}, // 已选择的商品属性
+    selectedAttrText: "",
+    selectedSku: {},  // 根据选择的商品属性匹配到的sku
   },
 
   /**
@@ -150,6 +155,70 @@ Page({
       current: url,
       urls: goodsGallery
     });
+  },
+
+  // 属性弹窗显示控制
+  showGoodsAttrBox(e){
+    const { isBuy } = e ? e.currentTarget.dataset : false;
+    const { showAttrBox } = this.data;
+    this.setData({
+      isBuy: isBuy ? true : false,
+      showAttrBox: !showAttrBox
+    })
+  },
+
+  // 选择商品属性
+  bindSelectGoodsAttr(e){
+    const { attrKey, attrCode } = e.currentTarget.dataset;
+    let { skuInfo, goodsAttr, selectedAttr, selectedAttrText, selectedSku } = this.data;
+
+    // 属性选择,重复的移除，非重复的存储
+    if(selectedAttr[attrKey] && selectedAttr[attrKey]==attrCode){
+      delete selectedAttr[attrKey]
+    } else {
+      selectedAttr[attrKey] = attrCode;
+    }
+
+    // 根据选择的属性到skuInfo中查找相应的sku数据
+    let selectedSkuList = [...skuInfo];
+    for(let key in selectedAttr){
+      selectedSkuList = selectedSkuList.filter((item)=>item[key+'Code']==selectedAttr[key]);
+
+      goodsAttr.forEach((item)=>{
+        if(item.attrKey==key){
+          let attr = item.list.filter(attr=>attr.code==selectedAttr[key]);
+          selectedAttrText = attr[0].value + ",";
+        }
+      })
+    }
+
+    this.setData({
+      selectedAttr,
+      selectedAttrText,
+      selectedSku: selectedSkuList.length==1 ? selectedSkuList[0] : selectedSku
+    })
+  },
+
+  // 属性弹窗确认按钮
+  addCartConfirm(){
+    const { isBuy } = this.data;
+    if(isBuy){
+      this.showGoodsAttrBox();
+      wx.navigateTo({
+        url: '/pages/createOrder/createOrder'
+      })
+    } else {
+      wx.showToast({
+        title: '加入购物车成功！',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        complete: ()=>{
+          this.showGoodsAttrBox()
+        }
+      });
+    }
   },
 
   /**
