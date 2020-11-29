@@ -200,6 +200,7 @@ page {
   flex-shrink: 0;
 }
 
+/* 单行文字溢出省略 */
 .single-line-overflow {
   white-space: nowrap;
   width: 100%;
@@ -207,6 +208,8 @@ page {
   text-overflow: ellipsis;
 }
 
+
+/* 双行文字溢出省略 */
 .double-line-overflow {
   width: 100%;
   display: -webkit-box;
@@ -216,4 +219,14 @@ page {
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-all;
+}
+
+
+.mask {
+  width: 750rpx;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
 }

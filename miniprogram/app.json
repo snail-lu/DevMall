@@ -18,6 +18,7 @@
     "pages/points/points",
     "pages/member/member",
     "pages/message/message",
+    "pages/createOrder/createOrder",
     "pages/cloudDev/cloudDev",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
