@@ -12,11 +12,11 @@
 
 <!-- 商品项模板2 - 双列 -->
 <template name="goodsItem2">
-    <view class="goods-item-2" bindtap="toGoodsDetail">
-        <image class="goods-image"></image>
+    <view class="goods-item-2" data-sn="{{sn}}" bindtap="toGoodsDetail">
+        <image class="goods-image" src="{{imageUrl}}"></image>
         <view class="goods-info">
-            <view class="goods-name">【双11预售】最新限量款限定款预售正品cherry樱桃轴红轴机械键盘(含有线/无线鼠标套装)</view>
-            <view class="goods-price">¥158<span class="origin-price">¥249</span></view>
+            <view class="goods-name">{{name}}</view>
+            <view class="goods-price">¥{{salePrice}}<span class="origin-price">¥{{originPrice}}</span></view>
         </view>
     </view>
 </template>

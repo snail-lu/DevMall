@@ -27,7 +27,7 @@
             <template is="goodsItem1" wx:for="{{goodsList}}" wx:key="id" data="{{...item}}"></template>
         </block>
         <block wx:if="{{listMode==2}}">
-            <template is="goodsItem2" wx:for="{{goodsList}}" wx:key="*this"></template>
+            <template is="goodsItem2" wx:for="{{goodsList}}" wx:key="id" data="{{...item}}"></template>
         </block>
     </view>
 </view>

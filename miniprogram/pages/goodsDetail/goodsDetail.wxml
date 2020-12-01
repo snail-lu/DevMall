@@ -179,9 +179,9 @@
             <view class="goods-num flex-box flex-h-between">
                 <view class="title">数量</view>
                 <view class="goods-num-box">
-                    <image class="btn btn-left" src="/images/icons/jian.png" />
-                    <view class="goods-num">1</view>
-                    <image class="btn btn-right" src="/images/icons/jia.png" />
+                    <image class="btn btn-left" src="/images/icons/jian.png" bindtap="changeGoodsNum" />
+                    <view class="goods-num">{{goodsNum}}</view>
+                    <image class="btn btn-right" src="/images/icons/jia.png" data-type="inc" bindtap="changeGoodsNum" />
                 </view>
             </view>
         </view>

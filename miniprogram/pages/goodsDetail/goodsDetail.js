@@ -112,7 +112,8 @@ Page({
     showAttrBox: true, // 商品属性弹窗显示控制
     isBuy: false, //立即购买标志
     selectedAttr: {}, // 已选择的商品属性
-    selectedAttrText: "",
+    goodsNum: 1,  // 商品数量
+    selectedAttrText: "", // 已选商品属性文字描述
     selectedSku: {},  // 根据选择的商品属性匹配到的sku
   },
 
@@ -170,7 +171,7 @@ Page({
   // 选择商品属性
   bindSelectGoodsAttr(e){
     const { attrKey, attrCode } = e.currentTarget.dataset;
-    let { skuInfo, goodsAttr, selectedAttr, selectedAttrText, selectedSku } = this.data;
+    let { skuInfo, goodsAttr, selectedAttr, selectedSku } = this.data;
 
     // 属性选择,重复的移除，非重复的存储
     if(selectedAttr[attrKey] && selectedAttr[attrKey]==attrCode){
@@ -183,19 +184,47 @@ Page({
     let selectedSkuList = [...skuInfo];
     for(let key in selectedAttr){
       selectedSkuList = selectedSkuList.filter((item)=>item[key+'Code']==selectedAttr[key]);
-
-      goodsAttr.forEach((item)=>{
-        if(item.attrKey==key){
-          let attr = item.list.filter(attr=>attr.code==selectedAttr[key]);
-          selectedAttrText = attr[0].value + ",";
-        }
-      })
     }
+
+
+    // 选择属性描述文字拼接
+    let selectedAttrText = "";
+    goodsAttr.forEach((item)=>{
+      if(selectedAttr[item.attrKey]){
+          let attr = item.list.find(attr=>attr.code==selectedAttr[item.attrKey])
+          selectedAttrText = selectedAttrText + (attr?attr.value:'')+" ";
+      }
+    })
 
     this.setData({
       selectedAttr,
       selectedAttrText,
       selectedSku: selectedSkuList.length==1 ? selectedSkuList[0] : selectedSku
+    })
+  },
+
+  // 商品数量增减
+  changeGoodsNum(e) {
+    const { type } = e.currentTarget.dataset;
+    let { goodsNum } = this.data;
+    if(type==="inc"&&goodsNum<10){
+      goodsNum++;
+    }else if(type==="inc"&&goodsNum==10){
+      wx.showToast({
+        title: '限购10件哦~',
+        icon: 'none',
+      });
+    }else if(goodsNum>1){
+      goodsNum--;
+    }else {
+      wx.showToast({
+        title:"不能再少了哦~",
+        icon: 'none'
+      })
+    }
+
+    this.setData({
+      goodsNum
     })
   },
 
