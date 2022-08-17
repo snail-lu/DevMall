@@ -3,8 +3,8 @@
 
 ### 项目截图
 
-![](https://fastly.jsdelivr.net/gh/Snail-Lu/imageGalleries/gh-pages/2022/20220523231343.png)
-![](https://fastly.jsdelivr.net/gh/Snail-Lu/imageGalleries/gh-pages/2022/20220523231418.png)
+![](https://s1.ax1x.com/2022/08/16/v0NQMj.png)
+![](https://s1.ax1x.com/2022/08/16/v0Nlss.png)
 
 ## 参考文档
 
